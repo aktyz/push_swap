@@ -7,8 +7,10 @@ Right now I think I will need:
 - functions to modify the order of items on the list
 - function to iterate throught a list
 
-=> best is to really crete the functions for Libft BONUS and then re-use them here with the stack or/and stack item structure.
+DONE => best is to really crete the functions for Libft BONUS and then re-use them here with the stack or/and stack item structure.
 
-=> once Libft enriched for list functions I will use the Turk algorithm to sort the stacks
+TODO => Enrich Libft with gnl and printf to handle the reading and output of your push_swap program
 
-=> I will also need to translate each operation on the list into the operations names given in the assignment
+TODO => once Libft enriched for list functions I will use the Turk algorithm to sort the stacks
+
+TODO => I will also need to translate each operation on the list into the operations names given in the assignment

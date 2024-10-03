@@ -18,4 +18,4 @@
  *
  * Returns a pointer to the stack head.
  */
-t_stack	*ft_rotate(t_stack *lifo);
+t_stack	*ft_rotate(t_stack *stack);

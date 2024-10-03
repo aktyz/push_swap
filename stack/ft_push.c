@@ -19,4 +19,4 @@
  * Returns a pointer to the stack head.
  *
  */
-t_stack	*ft_push(t_stack *lifo, int number);
+t_stack	*ft_push(t_stack *stack, int number);

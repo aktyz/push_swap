@@ -18,4 +18,4 @@
  *
  * Returns a pointer to the stack head.
  */
-t_stack	*ft_peek(t_stack *lifo);
+t_stack	*ft_peek(t_stack *stack);

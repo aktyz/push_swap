@@ -16,4 +16,4 @@
  * Function removes top item from the stack.
  *
  */
-void	ft_pop(t_stack *lifo);
+void	ft_pop(t_stack *stack);
