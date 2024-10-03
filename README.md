@@ -9,7 +9,7 @@ Right now I think I will need:
 
 DONE => best is to really crete the functions for Libft BONUS and then re-use them here with the stack or/and stack item structure.
 
-TODO => Enrich Libft with gnl and printf to handle the reading and output of your push_swap program
+DONE => Enrich Libft with gnl and printf to handle the reading and output of your push_swap program
 
 TODO => once Libft enriched for list functions I will use the Turk algorithm to sort the stacks
 
