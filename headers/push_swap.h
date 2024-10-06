@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/06 20:32:12 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/06 20:50:36 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ typedef struct s_content
 
 // PROGRAM functions
 //void	sort(t_list stack_a);
-t_list	parse_arg(char *string);
+t_list	*parse_arg(char *string);
 
 #endif

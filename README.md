@@ -11,12 +11,17 @@ DONE => best is to really crete the functions for Libft BONUS and then re-use th
 
 DONE => Enrich Libft with gnl and printf to handle the reading and output of your push_swap program
 
-TODO => Copy Libft into this project and construct Makefile that will pick it up
+DONE => Copy Libft into this project and construct Makefile that will pick it up
 
 > From subject PDF:
 > - *Your project’s Makefile must compile the library by using its Makefile, then compile the project.*
 > - *your Makefile must not relink*
 
+TODO => Learn operations on **ptr...  -.-
+
+TODO => Complete parse_arg() function as per subject requirements
+
+TODO => Complete write_output() function as per subject requirements
 
 TODO => once Libft enriched for list functions I will use the Turk algorithm to sort the stacks
 
