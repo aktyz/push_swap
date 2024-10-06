@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/06 20:32:09 by zslowian         ###   ########.fr       */
+/*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
+/*   Updated: 2024/10/06 20:32:20 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+t_list	parse_arg(char *string)
 {
-	t_list	stack_a;
-	
-	if (argc < 2 || argc > 2)
-		return (0);
-	else
-		stack_a = parse_arg(argv[1]);
-		// sort(stack_a);
-		// provide_output(result);
-	return (0);
+	t_list	stack;
+	char 	**numbers;
+	int		count;
+
+	count = 1;
+	numbers = ft_split(string, " ");
+	while (**numbers)
+	{
+		printf("Number %d:\t \"%s\"", count, *numbers);
+		**numbers++;
+		count++;
+	}
+	return (stack);
 }

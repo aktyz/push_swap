@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/10/06 19:56:17 by zslowian         ###   ########.fr        #
+#    Updated: 2024/10/06 20:40:00 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,24 +15,17 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-DIR_SRC = src
-DIR_OBJ = obj
-DIR_TEST = test
-
-SUBDIR = stack
-
-SRC_DIR = $(foreach dir, $(SUBDIR), $(addprefix $(DIR_SRC)/, $(dir)))
-OBJ_DIR = $(foreach dir, $(SUBDIR), $(addprefix $(DIR_OBJ)/, $(dir)))
-SRC = $(foreach dir, $(SRC_DIR), $(wildcard $(dir)/*.c))
-OBJ = $(subst $(DIR_SRC), $(DIR_OBJ), $(SRC:.c=.o))
-TEST_SRC = $(wildcard $(DIR_TEST)/*.c)
+SRC_DIR = src
+OBJ_DIR = obj
+SRC = $(wildcard $(SRC_DIR)/*.c)
+OBJ = $(wildcard $(OBJ_DIR)/*.o)
 
 INCLUDES = -I headers
 
-$(DIR_OBJ)/%.o: $(DIR_SRC)/%.c libft
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c libft
 	@cp ./libft/libft.a ./libft.a
 	@cp ./libft/headers/libft.h	./headers/libft.h
-	@mkdir -p $(DIR_OBJ) $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ)
@@ -45,12 +38,12 @@ libft:
 	$(MAKE) -C ./libft
 
 fclean: clean
-	@rm ./libft.a
-	@rm ./headers/libft.h
 	@rm -f $(NAME)
 	@rm -fr $(DIR_OBJ)
 	@rm -f test.out
-	@cp ./libft && $(fclean)
+	@rm ./libft.a
+	@rm ./headers/libft.h
+	@cd ./libft && $(fclean)
 
 clean:
 	@rm -f $(OBJ)
