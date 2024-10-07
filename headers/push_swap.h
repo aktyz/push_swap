@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/07 15:33:07 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/07 15:57:05 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_heap	*parse_arg(char *string);
 
 // HEAP functions
 t_heap *ft_heapnew(int number, int init_i);
+t_heap *ft_heapadd(int number, int init_i, t_heap *heap);
 
 #endif
