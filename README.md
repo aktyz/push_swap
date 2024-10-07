@@ -42,3 +42,9 @@ Finds whitespace-separated words in text that match pattern and replaces them wi
 $(patsubst %.c,%.o,x.c.c bar.c)
 ```
 produces the value x.c.o bar.o.
+
+
+
+
+
+REMOVE wildcards from Makefiles

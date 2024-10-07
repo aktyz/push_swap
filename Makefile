@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/10/07 12:38:22 by zslowian         ###   ########.fr        #
+#    Updated: 2024/10/07 14:39:31 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c libft
 	@cp ./libft/libft.a ./libft.a
 	@cp ./libft/headers/libft.h	./headers/libft.h
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ -g
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) ./libft.a -o $(NAME)
+	$(CC) $(OBJ) ./libft.a -o $(NAME) -g
 
 all: $(NAME)
 
@@ -44,9 +44,19 @@ fclean: clean
 	@rm -f test.out
 	@rm ./libft.a
 	@rm ./headers/libft.h
+	@rm ./run_test
+	@rm ./run_debug
 
 clean:
 	@rm -f $(OBJ)
+
+test: $(OBJ)
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o
+	$(CC) obj/test_main.o  obj/push_swap_utils.o ./libft.a -o run_test
+
+debug: $(OBJ) test
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
+	$(CC) obj/test_main.o  obj/push_swap_utils.o ./libft.a -o run_debug -g
 
 re: fclean all
 
