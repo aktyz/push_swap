@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/10/07 15:34:22 by zslowian         ###   ########.fr        #
+#    Updated: 2024/10/07 16:07:57 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,11 +52,11 @@ clean:
 
 test: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o
-	$(CC) obj/test_main.o  obj/push_swap_utils.o obj/heap_utils.o ./libft.a -o run_test
+	$(CC) obj/test_main.o  obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o ./libft.a -o run_test
 
 debug: $(OBJ) test
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
-	$(CC) obj/test_main.o  obj/push_swap_utils.o obj/heap_utils.o ./libft.a -o run_debug -g
+	$(CC) obj/test_main.o  obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o ./libft.a -o run_debug -g
 
 re: fclean all
 

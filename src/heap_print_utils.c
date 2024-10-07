@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   heap_print_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/07 16:09:16 by zslowian         ###   ########.fr       */
+/*   Created: 2024/10/07 16:02:26 by zslowian          #+#    #+#             */
+/*   Updated: 2024/10/07 16:05:54 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+void	ft_print_heap_node(t_heap *node)
 {
-	char		*str;
-	t_heap		*a;
-
-	str = ft_calloc(sizeof(char), 20);
-	ft_strlcpy(str, "33 965", 10);	
-	ft_printf("%s\n", str);
-	a = parse_arg(str);
-	while(a)
-	{
-		ft_print_heap_node(a);
-		a = a->next;
-	}
-	return (0);
+	ft_printf("New node:\n");
+	ft_printf("\tValue stored in node:\t%d\n", node->number);
+	ft_printf("\tInitial index of the node:\t%d\n", node->initial_index);
+	ft_printf("\tSorted index of the node:\t%d\n", node->sorted_index);
 }
