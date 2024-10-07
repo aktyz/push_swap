@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   heap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/07 15:24:11 by zslowian         ###   ########.fr       */
+/*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
+/*   Updated: 2024/10/07 15:29:20 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
-{
-	char		*str;
-	t_heap		*a;
+t_heap *ft_heapnew(int number, int init_i);
 
-	str = ft_calloc(sizeof(char), 20);
-	ft_strlcpy(str, "33", 10);	
-	ft_printf("%s\n", str);
-	a = parse_arg(str);
-	ft_printf("My frist number: %d\n", a->number);
-	return (0);
+t_heap *ft_heapnew(int number, int init_i)
+{
+	t_heap *a;
+	
+	a = malloc(sizeof(t_heap));
+	a->number = number;
+	a->initial_index = init_i;
+	a->sorted_index = -1;
+	a->next = 0;
+
+	return (a);
 }
