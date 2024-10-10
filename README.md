@@ -17,17 +17,17 @@ DONE => Copy Libft into this project and construct Makefile that will pick it up
 > - *Your project’s Makefile must compile the library by using its Makefile, then compile the project.*
 > - *your Makefile must not relink*
 
-TODO => Learn operations on **ptr...  -.-
+DONE => Learn operations on **ptr...  -.-
 
-TODO => TDD: write tests for parse_arg() function
+DONE => TDD: write tests for parse_arg() function
 
-TODO => Complete parse_arg() function as per subject requirements
+IN_PROGRESS => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-TODO => Complete write_output() function as per subject requirements
-
-TODO => once Libft enriched for list functions I will use the Turk algorithm to sort the stacks
+TODO => implement Turk algorithm
 
 TODO => I will also need to translate each operation on the list into the operations names given in the assignment
+
+TODO => Complete write_output() function as per subject requirements
 
 # Short notes on Makefiles
 
