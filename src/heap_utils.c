@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/10 15:06:32 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:35:16 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_heap *ft_heapnew(int number, int init_i);
 t_heap *ft_heapadd(int number, int init_i, t_heap *heap);
 t_heap *ft_gettail(t_heap *heap);
 int	ft_is_dup(t_heap *heap, int nb);
+void	ft_destroyheap(t_heap **heap);
 
 t_heap *ft_heapnew(int number, int init_i)
 {
@@ -63,4 +64,17 @@ int	ft_is_dup(t_heap *heap, int nb)
 		heap = heap->next;
 	}
 	return (OK);
+}
+
+void	ft_destroyheap(t_heap **heap)
+{
+	t_heap *temp;
+	
+	while (*heap)
+	{
+		temp = *heap;
+		*heap = (*heap)->next;
+		free(temp);
+	}
+	heap = 0;
 }
