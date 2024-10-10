@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/07 16:01:45 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:14:25 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,13 @@ t_heap	*parse_arg(char *string)
 	while(*str_array)
 	{
 		number = ft_atoi(*str_array);
-		stack = ft_heapadd(number, i, stack);
+		if (ft_is_dup(stack, number) == DUPLICATION_ERROR)
+		{
+			free(stack);
+			return (stack);
+		}
+		else
+			stack = ft_heapadd(number, i, stack);
 		str_array++;
 		i++;
 	}

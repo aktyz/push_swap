@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/10 14:21:06 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:11:04 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	t_heap		*a;
 
 	str = ft_calloc(sizeof(char), 20);
-	ft_strlcpy(str, "33 965 77 0 77", 15);	
+	ft_strlcpy(str, "33 965 77 0 77 7", 17);	
 	ft_printf("%s\n", str);
 	a = parse_arg(str);
 	while(a)
@@ -26,5 +26,6 @@ int	main(void)
 		ft_print_heap_node(a);
 		a = a->next;
 	}
+	free(a);
 	return (0);
 }
