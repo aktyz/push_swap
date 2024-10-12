@@ -21,11 +21,16 @@ DONE => Learn operations on **ptr...  -.-
 
 DONE => TDD: write tests for parse_arg() function
 
-IN_PROGRESS => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
+DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-TODO => implement Turk algorithm
+IN_PROGRESS => implement Turk algorithm
+	- pausing during writing tests for ft_get_heap_size(heap);
 
 TODO => I will also need to translate each operation on the list into the operations names given in the assignment
+
+TODO => Add two more errors checks:
+	- some arguments aren’t integers
+	- some arguments are bigger than an integer
 
 TODO => Complete write_output() function as per subject requirements
 

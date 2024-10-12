@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heap_print_utils.c                                 :+:      :+:    :+:   */
+/*   heap_getters.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 16:02:26 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/12 22:00:57 by zslowian         ###   ########.fr       */
+/*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
+/*   Updated: 2024/10/12 22:00:29 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_heap_node(t_heap *node)
+t_heap	*ft_gettail(t_heap *heap);
+int		ft_get_size(t_heap *heap);
+
+t_heap	*ft_gettail(t_heap *heap)
 {
-	ft_printf("New node:\n");
-	ft_printf("\tValue stored in node:\t%d\n", node->number);
-	ft_printf("\tInitial index of the node:\t%d\n", node->initial_index);
+	while (heap->next)
+		heap = heap->next;
+	return (heap);
 }
 
-void	ft_print_heap_size(t_heap *heap)
+int	ft_get_size(t_heap *heap)
 {
-	int i = ft_get_size(heap);
-	ft_printf("The size of my heap is: %d\n", i);
+	int	i;
+
+	i = 1;
+	while (heap->next)
+	{
+		i++;
+		heap = heap->next;
+	}
+	return (i);
 }

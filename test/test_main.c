@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/12 19:25:55 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/12 21:59:58 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	t_heap		*a;
+	t_heap		*temp;
 
 	if (argc != 2)
 	{
@@ -28,11 +29,13 @@ int	main(int argc, char *argv[])
 		write(1, "Error - duplicated integers\n", 28);
 		return (0); // switch to error message
 	}
-	while (a) // DEBUG
+	temp = a;
+	while (temp) // DEBUG
 	{
-		ft_print_heap_node(a);
-		a = a->next;
+		ft_print_heap_node(temp);
+		temp = temp->next;
 	}
+	ft_print_heap_size(a);
 	// sort(stack_a);
 	// write_output(result);
 	free(a); //My Program
