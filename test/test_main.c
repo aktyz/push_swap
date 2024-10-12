@@ -6,22 +6,24 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/10 15:36:41 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/12 19:25:55 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	char		*str;
 	t_heap		*a;
 
-	str = ft_calloc(sizeof(char), 20);
-	ft_strlcpy(str, "33 965 77 0 77 7", 17);	
-	ft_printf("%s\n", str);
-	a = parse_arg(str);
-	if (!a)
+	if (argc != 2)
+	{
+		write(1, "Error - to little/many arguments\n", 33);
+		return (0); // switch to error message
+	}
+	else
+	a = parse_arg(argv[1]); //My Program
+	if (!a) //My Program
 	{
 		write(1, "Error - duplicated integers\n", 28);
 		return (0); // switch to error message
@@ -31,6 +33,8 @@ int	main(void)
 		ft_print_heap_node(a);
 		a = a->next;
 	}
-	free(a);
-	return (0);
+	// sort(stack_a);
+	// write_output(result);
+	free(a); //My Program
+	return (0); //My Program
 }

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/10 15:13:36 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/12 19:24:06 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@ int main(int argc, char *argv[])
 	
 	if (argc != 2)
 	{
-		write(1, "Error - to little/many arguments", 32);
+		write(1, "Error - to little/many arguments\n", 33);
 		return (0); // switch to error message
 	}
 	else
 	stack_a = parse_arg(argv[1]);
 	if (!stack_a)
 	{
-		write(1, "Error - duplicated integers", 27);
+		write(1, "Error - duplicated integers\n", 28);
 		return (0); // switch to error message
 	}
 	// sort(stack_a);
 	// write_output(result);
-		return (0);
+	free(stack_a);
+	return (0);
 }
