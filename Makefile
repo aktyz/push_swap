@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/10/13 15:13:18 by zslowian         ###   ########.fr        #
+#    Updated: 2024/10/13 16:31:42 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,13 +54,15 @@ test: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_operations_test.c -o obj/heap_operations_test.o
-	$(CC) obj/test_main.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_test
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_checkers_test.c -o obj/heap_checkers_test.o
+	$(CC) obj/test_main.o obj/heap_checkers_test.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_test
 
 debug: $(OBJ) test
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o -g
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_operations_test.c -o obj/heap_operations_test.o -g
-	$(CC) obj/test_main.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_debug -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_checkers_test.c -o obj/heap_checkers_test.o -g
+	$(CC) obj/test_main.o obj/heap_checkers_test.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_debug -g
 
 re: fclean all
 

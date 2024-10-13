@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 16:14:45 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:24:24 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	push_b(t_heap **a, t_heap **b);
 
 // HEAP checks
 int		ft_is_dup(t_heap *heap, int nb);
+int		ft_is_sorted(t_heap *heap);
 
 t_heap *ft_heapnew(int number, int init_i)
 {
@@ -91,4 +92,29 @@ void	push_b(t_heap **a, t_heap **b)
 		*b = temp;
 	}
 	ft_printf("pb\n");
+}
+
+int		ft_is_sorted(t_heap *heap)
+{
+	t_heap	*tail;
+	int		nb;
+
+	if (ft_get_size(heap) < 2)
+		return (1);
+	nb = heap->number;
+	tail = ft_gettail(heap);
+	while (heap->next)
+	{
+		if (nb < heap->number)
+		{
+			nb = heap->number;
+			heap = heap->next;
+		}
+		else
+			break ;
+	}
+	if (nb <= tail->number)
+		return (1);
+	else
+		return (0);
 }
