@@ -23,21 +23,22 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
+PICK-UP from cleaning up your heap structure to accomodate for the cost calculation function
+
 IN_PROGRESS => implement Turk algorithm
-	- pausing during writing tests for ft_get_size(heap);
+	- ft_cost_calculation(**heap); // returning a pointer to the new head with the cheapest
+	- ft_push_b_correct_place(**a, **b); // returning void;
+	- ft_push_a_correct_place(**a, **b); // returning void;
 
-IN_PROGRESS => I will also need to translate each operation on the list into the operations names given in the assignment
-
-TODO => Add two more errors checks:
-	- some arguments aren’t integers
-	- some arguments are bigger than an integer
+TODO =>
+	- errors check: some arguments aren’t integers
+	- errors check: some arguments are bigger than an integer
 	- remove unusued "initial index of the node"
-
-TODO => Complete write_output() function as per subject requirements
-
-TODO => chores:
+	- revrite ft_heap_new(**heap) & ft_heap_add(**heap)
+	- check how arguments should be passed to your main: string or many argv
 	- REMOVE wildcards from Makefiles
 	- split heap_utils.c into separate files depending on function
+	- norminette!!!!
 
 # Short notes on Makefiles
 
