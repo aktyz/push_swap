@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/10/12 21:57:27 by zslowian         ###   ########.fr        #
+#    Updated: 2024/10/13 14:16:33 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,11 +52,13 @@ clean:
 
 test: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o
-	$(CC) obj/test_main.o  obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_test
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o
+	$(CC) obj/test_main.o obj/heap_getters_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_test
 
 debug: $(OBJ) test
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
-	$(CC) obj/test_main.o  obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_debug -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o -g
+	$(CC) obj/test_main.o obj/heap_getters_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_debug -g
 
 re: fclean all
 

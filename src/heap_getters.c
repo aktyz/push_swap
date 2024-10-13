@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/12 22:00:29 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 14:19:22 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_get_size(t_heap *heap)
 {
 	int	i;
 
+	if (!heap)
+		return (0);
 	i = 1;
 	while (heap->next)
 	{
