@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/12 19:24:06 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:09:35 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 		write(1, "Error - duplicated integers\n", 28);
 		return (0); // switch to error message
 	}
-	// sort(stack_a);
+	ft_push_swap(stack_a);
 	// write_output(result);
 	free(stack_a);
 	return (0);

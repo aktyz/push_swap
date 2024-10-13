@@ -6,16 +6,22 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/12 21:56:11 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:14:45 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// HEAP construct & desctruct
 t_heap	*ft_heapnew(int number, int init_i);
 t_heap	*ft_heapadd(int number, int init_i, t_heap *heap);
-int		ft_is_dup(t_heap *heap, int nb);
 void	ft_destroyheap(t_heap **heap);
+
+// HEAPS operations
+void	push_b(t_heap **a, t_heap **b);
+
+// HEAP checks
+int		ft_is_dup(t_heap *heap, int nb);
 
 t_heap *ft_heapnew(int number, int init_i)
 {
@@ -67,4 +73,22 @@ void	ft_destroyheap(t_heap **heap)
 		free(temp);
 	}
 	heap = 0;
+}
+
+void	push_b(t_heap **a, t_heap **b)
+{
+	t_heap *temp;
+	
+	if (!(*a))
+		return ;
+	temp = *a;
+	*a = temp->next;
+	if (ft_get_size(*b) == 0)
+		*b = ft_heapnew(temp->number, 0);
+	else
+	{
+		temp->next = *b;
+		*b = temp;
+	}
+	ft_printf("pb\n");
 }

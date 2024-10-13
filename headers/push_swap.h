@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 13:58:36 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 15:14:54 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,16 @@ typedef struct s_heap
 } t_heap;
 
 // PROGRAM functions
-//void	sort(t_list stack_a);
 t_heap	*parse_arg(char *string);
+void	ft_push_swap(t_heap *heap);
 
 // HEAP construct & desctruct
 t_heap	*ft_heapnew(int number, int init_i);
 t_heap	*ft_heapadd(int number, int init_i, t_heap *heap);
 void	ft_destroyheap(t_heap **heap);
+
+// HEAPS operations
+void	push_b(t_heap **a, t_heap **b);
 
 // HEAP getters
 t_heap	*ft_gettail(t_heap *heap);
@@ -40,7 +43,9 @@ int		ft_is_dup(t_heap *heap, int nb);
 
 // DEBUG/TEST functions
 void	ft_print_heap_node(t_heap *node);
+void	ft_print_heap(t_heap *heap);
 void	ft_print_heap_size(t_heap *heap);
 void	test_ft_get_size(void);
+void	test_push_b(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 14:08:02 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:15:27 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ int	main(int argc, char *argv[])
 		temp = temp->next;
 	}
 	ft_print_heap_size(a);
-	// sort(stack_a);
+	// ft_push_swap(a); //My Program
 	// write_output(result);
 	free(a); //My Program
-	free(temp);
+	free(temp); //My Program
 	ft_printf("\nUNIT TESTS\n");
 	test_ft_get_size();
+	test_push_b();
 	ft_printf("\nUNIT TESTS COMPLETED\n");
 	return (0); //My Program
 }

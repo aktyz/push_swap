@@ -26,13 +26,17 @@ DONE => Complete parse_arg() function as per subject requirements, reading from 
 IN_PROGRESS => implement Turk algorithm
 	- pausing during writing tests for ft_get_size(heap);
 
-TODO => I will also need to translate each operation on the list into the operations names given in the assignment
+IN_PROGRESS => I will also need to translate each operation on the list into the operations names given in the assignment
 
 TODO => Add two more errors checks:
 	- some arguments aren’t integers
 	- some arguments are bigger than an integer
 
 TODO => Complete write_output() function as per subject requirements
+
+TODO => chores:
+	- REMOVE wildcards from Makefiles
+	- split heap_utils.c into separate files depending on function
 
 # Short notes on Makefiles
 
@@ -52,4 +56,3 @@ produces the value x.c.o bar.o.
 
 
 
-REMOVE wildcards from Makefiles
