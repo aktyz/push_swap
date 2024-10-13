@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 17:37:03 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 19:26:25 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ void	ft_destroyheap(t_heap **heap);
 
 // HEAPS operations
 void	push_b(t_heap **a, t_heap **b);
-void	swap(t_heap **a);
+int		swap(t_heap **heap);
 void	swap_a(t_heap **a);
 void	swap_b(t_heap **b);
+void	swap_ab(t_heap **a, t_heap **b);
+int		reverse_rotate(t_heap **heap);
+void	reverse_rotate_a(t_heap **a);
+void	reverse_rotate_b(t_heap **b);
+void	reverse_rotate_ab(t_heap **a, t_heap **b);
 
 // HEAP checks
 int		ft_is_dup(t_heap *heap, int nb);
@@ -97,58 +102,110 @@ void	push_b(t_heap **a, t_heap **b)
 	ft_printf("pb\n");
 }
 
-void	swap(t_heap **a)
+int	swap(t_heap **a)
 {
 	int	tmp_nb;
 
 	if(!*a || ft_get_size(*a) == 1)
-		return ;
+		return (0);
 	tmp_nb = (*a)->next->number;
-	
 	(*a)->next->number = (*a)->number;
 	(*a)->number = tmp_nb;
+	return (1);
 }
 
 void	swap_a(t_heap **a)
 {
-	swap(a);
-	ft_printf("sa\n");
+	if (swap(a))
+		ft_printf("sa\n");
 }
 
 void	swap_b(t_heap **b)
 {
-	swap(b);
-	ft_printf("sb\n");
+	if (swap(b))
+		ft_printf("sb\n");
 }
 
 void	swap_ab(t_heap **a, t_heap **b)
 {
-	swap(a);
-	swap(b);
-	ft_print("ss\n");
+	int	ra;
+	int	rb;
+	
+	ra = swap(a);
+	rb = swap(b);
+	if(ra && rb)
+		ft_printf("ss\n");
+	else if (ra)
+		ft_printf("sa\n");
+	else if (rb)
+		ft_printf("sb\n");
+	else
+		return ;
+}
+
+int	reverse_rotate(t_heap **heap)
+{
+	t_heap	*tail;
+	t_heap	*tmp;
+	
+	if (ft_get_size(*heap) < 2)
+		return (0);
+	tmp = *heap;
+	tail = ft_gettail(*heap);
+	while (tmp->next != tail)
+		tmp = tmp->next;
+	tmp->next = 0;
+	tail->next = *heap;
+	*heap = tail;		
+	return (1);
+}
+
+void	reverse_rotate_a(t_heap **a)
+{
+	if (reverse_rotate(a))
+		ft_printf("rra\n");
+}
+
+void	reverse_rotate_b(t_heap **b)
+{
+	if (reverse_rotate(b))
+		ft_printf("rrb\n");
+}
+
+void	reverse_rotate_ab(t_heap **a, t_heap **b)
+{
+	int	ra;
+	int	rb;
+	
+	ra = reverse_rotate(a);
+	rb = reverse_rotate(b);
+	if(ra && rb)
+		ft_printf("rrr\n");
+	else if (ra)
+		ft_printf("rra\n");
+	else if (rb)
+		ft_printf("rrb\n");
+	else
+		return ;
 }
 
 int		ft_is_sorted(t_heap *heap)
 {
-	t_heap	*tail;
-	int		nb;
+	int		tmp_nb;
 
 	if (ft_get_size(heap) < 2)
 		return (1);
-	nb = heap->number;
-	tail = ft_gettail(heap);
-	while (heap->next)
+	tmp_nb = heap->number;
+	heap = heap->next;
+	while (heap)
 	{
-		if (nb < heap->number)
+		if (tmp_nb < heap->number)
 		{
-			nb = heap->number;
+			tmp_nb = heap->number;
 			heap = heap->next;
 		}
 		else
-			break ;
+			return (0);
 	}
-	if (nb <= tail->number)
-		return (1);
-	else
-		return (0);
+	return (1);
 }

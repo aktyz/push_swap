@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 17:33:06 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 19:06:52 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_heap	*parse_arg(char *string);
 void	ft_push_swap(t_heap *heap);
+void	ft_sort_three(t_heap **heap);
 
 t_heap	*parse_arg(char *string)
 {
@@ -47,7 +48,6 @@ t_heap	*parse_arg(char *string)
 void	ft_push_swap(t_heap *heap)
 {
 	int		size;
-	int		result;
 	t_heap	*b;
 
 	size = ft_get_size(heap);
@@ -55,29 +55,37 @@ void	ft_push_swap(t_heap *heap)
 		return ;
 	if (size == 2)
 		{
-			result = ft_is_sorted(heap);
-			if(!result)
+			if(!ft_is_sorted(heap))
 				swap_a(&heap);
 		}
 	else if (size == 3)
-		{
-			result = ft_is_sorted(heap);
-			//if(!result)
-			// sort three elements heap
-		}
+		ft_sort_three(&heap);
 	else 
 		{
 			push_b(&heap, &b);
-			// check size A if not 3
+			if (ft_get_size(heap) == 3)
+			{
+				ft_sort_three(&heap);
+				// while (ft_get_size(b))
+				// 		push_a_to_the_correct_place
+				return ;
+			}
 			push_b(&heap, &b);
-			
-			while(size > 3)
+			while(ft_get_size(heap) > 3)
 			{
 				// calculate the cost of each element
 				// move the cheapest - push_b_to_the_correct_place
-				size = ft_get_size(heap);
 			}
-			// sort three elements heap
-			// push_a_to_the_correct_place
+			ft_sort_three(&heap);
+			// while (ft_get_size(b))
+			// 		push_a_to_the_correct_place
 		}
+}
+
+void	ft_sort_three(t_heap **heap)
+{
+	if (!ft_is_sorted(*heap))
+		swap_a(heap);
+	if (!ft_is_sorted(*heap))
+		reverse_rotate_a(heap);
 }

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:06:28 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 17:35:25 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 19:04:38 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	test_push_b(void);
 void	test_swap(void);
+void	test_reverse_rotate(void);
 
 void	test_push_b(void)
 {
@@ -74,5 +75,34 @@ void	test_swap(void)
 	swap_a(&a);
 	ft_printf("Heap after swap:\n");
 	ft_print_heap(a);
-	ft_destroyheap(a);
+	ft_destroyheap(&a);
+}
+
+void	test_reverse_rotate(void)
+{
+	t_heap	*a;
+
+	a = 0;
+	reverse_rotate_a(&a);
+	a = ft_heapnew(45, 0);
+	ft_printf("Heap before reverse rotation:\n");
+	ft_print_heap(a);
+	reverse_rotate_a(&a);
+	ft_printf("Heap after reverse rotation:\n");
+	ft_print_heap(a);
+	ft_printf("\n\n");
+	a = ft_heapadd(9, 1, a);
+	ft_printf("Heap before reverse rotation:\n");
+	ft_print_heap(a);
+	reverse_rotate_a(&a);
+	ft_printf("Heap after reverse rotation:\n");
+	ft_print_heap(a);
+	ft_printf("\n\n");
+	a = ft_heapadd(27, 2, a);
+	ft_printf("Heap before reverse rotation:\n");
+	ft_print_heap(a);
+	reverse_rotate_a(&a);
+	ft_printf("Heap after reverse rotation:\n");
+	ft_print_heap(a);
+	ft_destroyheap(&a);
 }
