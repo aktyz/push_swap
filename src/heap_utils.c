@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 16:24:24 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:37:03 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	ft_destroyheap(t_heap **heap);
 
 // HEAPS operations
 void	push_b(t_heap **a, t_heap **b);
+void	swap(t_heap **a);
+void	swap_a(t_heap **a);
+void	swap_b(t_heap **b);
 
 // HEAP checks
 int		ft_is_dup(t_heap *heap, int nb);
@@ -92,6 +95,37 @@ void	push_b(t_heap **a, t_heap **b)
 		*b = temp;
 	}
 	ft_printf("pb\n");
+}
+
+void	swap(t_heap **a)
+{
+	int	tmp_nb;
+
+	if(!*a || ft_get_size(*a) == 1)
+		return ;
+	tmp_nb = (*a)->next->number;
+	
+	(*a)->next->number = (*a)->number;
+	(*a)->number = tmp_nb;
+}
+
+void	swap_a(t_heap **a)
+{
+	swap(a);
+	ft_printf("sa\n");
+}
+
+void	swap_b(t_heap **b)
+{
+	swap(b);
+	ft_printf("sb\n");
+}
+
+void	swap_ab(t_heap **a, t_heap **b)
+{
+	swap(a);
+	swap(b);
+	ft_print("ss\n");
 }
 
 int		ft_is_sorted(t_heap *heap)

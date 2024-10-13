@@ -31,6 +31,7 @@ IN_PROGRESS => I will also need to translate each operation on the list into the
 TODO => Add two more errors checks:
 	- some arguments aren’t integers
 	- some arguments are bigger than an integer
+	- remove unusued "initial index of the node"
 
 TODO => Complete write_output() function as per subject requirements
 

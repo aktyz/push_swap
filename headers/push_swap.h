@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 16:32:47 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:14:58 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	ft_destroyheap(t_heap **heap);
 
 // HEAPS operations
 void	push_b(t_heap **a, t_heap **b);
+void	swap(t_heap **a);
+void	swap_a(t_heap **a);
+void	swap_b(t_heap **b);
 
 // HEAP getters
 t_heap	*ft_gettail(t_heap *heap);
@@ -46,8 +49,10 @@ int		ft_is_sorted(t_heap *heap);
 void	ft_print_heap_node(t_heap *node);
 void	ft_print_heap(t_heap *heap);
 void	ft_print_heap_size(t_heap *heap);
+void	ft_print_ab(t_heap *a, t_heap *b);
 void	test_ft_is_sorted(void);
 void	test_ft_get_size(void);
 void	test_push_b(void);
+void	test_swap(void);
 
 #endif

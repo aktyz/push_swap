@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 16:11:46 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/13 17:33:06 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_heap	*parse_arg(char *string)
 void	ft_push_swap(t_heap *heap)
 {
 	int		size;
+	int		result;
 	t_heap	*b;
 
 	size = ft_get_size(heap);
@@ -54,12 +55,14 @@ void	ft_push_swap(t_heap *heap)
 		return ;
 	if (size == 2)
 		{
-			// check if sorted - ie. min at the top
-			// if not swap a
+			result = ft_is_sorted(heap);
+			if(!result)
+				swap_a(&heap);
 		}
-	if (size == 3)
+	else if (size == 3)
 		{
-			// check if sorted - ie. min at the top
+			result = ft_is_sorted(heap);
+			//if(!result)
 			// sort three elements heap
 		}
 	else 
