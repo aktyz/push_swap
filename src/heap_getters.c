@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 14:19:22 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/14 21:05:58 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_heap	*ft_gettail(t_heap *heap);
 int		ft_get_size(t_heap *heap);
+int		ft_get_min(t_heap *heap);
+int		ft_get_nb_pos(int nb, t_heap *heap);
 
 t_heap	*ft_gettail(t_heap *heap)
 {
@@ -22,6 +24,10 @@ t_heap	*ft_gettail(t_heap *heap)
 	return (heap);
 }
 
+/**
+ * Returns number of nodes in the heap.
+ * 
+*/
 int	ft_get_size(t_heap *heap)
 {
 	int	i;
@@ -35,4 +41,31 @@ int	ft_get_size(t_heap *heap)
 		heap = heap->next;
 	}
 	return (i);
+}
+
+int		ft_get_min(t_heap *heap)
+{
+	int	min;
+
+	min = heap->number;
+	while (heap)
+	{
+		if (heap->number < min)
+			min = heap->number;
+		heap = heap->next;
+	}
+	return (min);
+}
+
+int		ft_get_nb_pos(int nb, t_heap *heap)
+{
+	int	pos;
+
+	pos = 0;
+	while (nb != heap->number);
+	{
+		pos++;
+		heap = heap->next;
+	}
+	return (pos);
 }

@@ -26,11 +26,13 @@ DONE => Complete parse_arg() function as per subject requirements, reading from 
 > PICK-UP: start working on cost-calculation function
 
 IN_PROGRESS => implement Turk algorithm<br>
-- [ ] ft_cost_calculation(*a, *b); // returning a pointer to the new head with the cheapest<br>
+- [ ] ft_cost_calculation(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
 - [ ] ft_push_b_correct_place(**a, **b); // returning void;<br>
 - [ ] ft_push_a_correct_place(**a, **b); // returning void;<br>
 
 TODO =><br>
+- [ ] correct ft_nb_at_head() to account for the direction of the rotation
+- [ ] correct return from ft_node_cost_calculation - depeinding on the combination of positive negative a & b rotations
 - [ ] errors check: some arguments aren’t integers<br>
 - [ ] errors check: some arguments are bigger than an integer<br>
 - [x] remove unusued "initial index of the node"<br>
