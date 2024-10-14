@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:06:28 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 19:04:38 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:49:58 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	test_push_b(void)
 	a = 0;
 	b = 0;
 
-	a = ft_heapnew(7, 0);
-	a = ft_heapadd(33, 1, a);
+	a = ft_heapnew(7);
+	ft_heapadd(33, &a);
 	ft_printf("\n\nStack A before changes:\n");
 	ft_print_heap(a);
 	push_b(&a, &b);
 	ft_printf("\nAfter push_b to empty B two stacks are:\n");
 	ft_print_ab(a, b);
-	a = ft_heapadd(56, 2, a);
+	ft_heapadd(56, &a);
 	ft_printf("\n\nStack A before changes:\n");
 	ft_print_heap(a);
 	push_b(&a, &b);
@@ -55,21 +55,21 @@ void	test_swap(void)
 
 	a = 0;
 	swap_a(&a);
-	a = ft_heapnew(33, 0);
+	a = ft_heapnew(33);
 	ft_printf("Heap before swap:\n");
 	ft_print_heap(a);
 	swap_a(&a);
 	ft_printf("Heap after swap:\n");
 	ft_print_heap(a);
 	ft_printf("\n\n");
-	a = ft_heapadd(7, 1, a);
+	ft_heapadd(7, &a);
 	ft_printf("Heap before swap:\n");
 	ft_print_heap(a);
 	swap_a(&a);
 	ft_printf("Heap after swap:\n");
 	ft_print_heap(a);
 	ft_printf("\n\n");
-	a = ft_heapadd(5879348, 1, a);
+	ft_heapadd(5879348, &a);
 	ft_printf("Heap before swap:\n");
 	ft_print_heap(a);
 	swap_a(&a);
@@ -84,21 +84,21 @@ void	test_reverse_rotate(void)
 
 	a = 0;
 	reverse_rotate_a(&a);
-	a = ft_heapnew(45, 0);
+	a = ft_heapnew(45);
 	ft_printf("Heap before reverse rotation:\n");
 	ft_print_heap(a);
 	reverse_rotate_a(&a);
 	ft_printf("Heap after reverse rotation:\n");
 	ft_print_heap(a);
 	ft_printf("\n\n");
-	a = ft_heapadd(9, 1, a);
+	ft_heapadd(9, &a);
 	ft_printf("Heap before reverse rotation:\n");
 	ft_print_heap(a);
 	reverse_rotate_a(&a);
 	ft_printf("Heap after reverse rotation:\n");
 	ft_print_heap(a);
 	ft_printf("\n\n");
-	a = ft_heapadd(27, 2, a);
+	ft_heapadd(27, &a);
 	ft_printf("Heap before reverse rotation:\n");
 	ft_print_heap(a);
 	reverse_rotate_a(&a);

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 19:06:52 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:48:06 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_heap	*parse_arg(char *string)
 	i = 0;
 	str_array = ft_split(string, ' ');
 	number = ft_atoi(*str_array);
-	stack = ft_heapnew(number, i);
+	stack = ft_heapnew(number);
 	str_array++;
 	i++;
 	while(*str_array)
@@ -38,7 +38,7 @@ t_heap	*parse_arg(char *string)
 			return (stack);
 		}
 		else
-			stack = ft_heapadd(number, i, stack);
+			ft_heapadd(number, &stack);
 		str_array++;
 		i++;
 	}

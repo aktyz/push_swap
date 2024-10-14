@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:02:26 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 17:12:31 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:52:06 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_print_heap_node(t_heap *node)
 {
 	ft_printf("New node:\n");
 	ft_printf("\tValue stored in node:\t%d\n", node->number);
-	ft_printf("\tInitial index of the node:\t%d\n", node->initial_index);
+	ft_printf("\tCost of push_b of the node:\t%d\n", node->push_b_cost);
 }
 
 void	ft_print_heap(t_heap *heap)

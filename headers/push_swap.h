@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 19:13:15 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:45:17 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_heap
 {
 	int				number;
-	int				initial_index;
+	int				push_b_cost;
 	struct s_heap	*next;
 } t_heap;
 
@@ -28,8 +28,8 @@ void	ft_push_swap(t_heap *heap);
 void	ft_sort_three(t_heap **heap);
 
 // HEAP construct & desctruct
-t_heap	*ft_heapnew(int number, int init_i);
-t_heap	*ft_heapadd(int number, int init_i, t_heap *heap);
+t_heap	*ft_heapnew(int number);
+void	ft_heapadd(int number, t_heap **heap);
 void	ft_destroyheap(t_heap **heap);
 
 // HEAPS operations

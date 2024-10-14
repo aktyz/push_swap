@@ -6,15 +6,15 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 19:26:25 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:51:06 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // HEAP construct & desctruct
-t_heap	*ft_heapnew(int number, int init_i);
-t_heap	*ft_heapadd(int number, int init_i, t_heap *heap);
+t_heap *ft_heapnew(int number);
+void	ft_heapadd(int number, t_heap **heap);
 void	ft_destroyheap(t_heap **heap);
 
 // HEAPS operations
@@ -32,32 +32,30 @@ void	reverse_rotate_ab(t_heap **a, t_heap **b);
 int		ft_is_dup(t_heap *heap, int nb);
 int		ft_is_sorted(t_heap *heap);
 
-t_heap *ft_heapnew(int number, int init_i)
+t_heap	*ft_heapnew(int number)
 {
 	t_heap *a;
 	
 	a = malloc(sizeof(t_heap));
 	a->number = number;
-	a->initial_index = init_i;
+	a->push_b_cost = 0;
 	a->next = 0;
 
 	return (a);
 }
 
-t_heap *ft_heapadd(int number, int init_i, t_heap *heap)
+void	ft_heapadd(int number, t_heap **heap)
 {
 	t_heap *new_node;
 	t_heap *tail;
 
 	new_node = malloc(sizeof(t_heap));
-	tail = ft_gettail(heap);
+	tail = ft_gettail(*heap);
 	new_node->number = number;
-	new_node->initial_index = init_i;
+	new_node->push_b_cost = 0;
 	new_node->next = 0;
 	
 	tail->next = new_node;
-
-	return (heap);
 }
 
 int	ft_is_dup(t_heap *heap, int nb)
@@ -93,7 +91,7 @@ void	push_b(t_heap **a, t_heap **b)
 	temp = *a;
 	*a = temp->next;
 	if (ft_get_size(*b) == 0)
-		*b = ft_heapnew(temp->number, 0);
+		*b = ft_heapnew(temp->number);
 	else
 	{
 		temp->next = *b;

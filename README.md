@@ -23,22 +23,22 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-> PICK-UP from cleaning up your heap structure to accomodate for the cost calculation function
+> PICK-UP: start working on cost-calculation function
 
 IN_PROGRESS => implement Turk algorithm<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] ft_cost_calculation(**heap); // returning a pointer to the new head with the cheapest<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] ft_push_b_correct_place(**a, **b); // returning void;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] ft_push_a_correct_place(**a, **b); // returning void;<br>
+- [ ] ft_cost_calculation(*a, *b); // returning a pointer to the new head with the cheapest<br>
+- [ ] ft_push_b_correct_place(**a, **b); // returning void;<br>
+- [ ] ft_push_a_correct_place(**a, **b); // returning void;<br>
 
-TODO =>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] errors check: some arguments aren’t integers<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] errors check: some arguments are bigger than an integer<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] remove unusued "initial index of the node"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] revrite ft_heap_new(**heap) & ft_heap_add(**heap)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] check how arguments should be passed to your main: string or many argv<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] REMOVE wildcards from Makefiles<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] split heap_utils.c into separate files depending on function<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- [ ] norminette!!!!<br><br>
+TODO =><br>
+- [ ] errors check: some arguments aren’t integers<br>
+- [ ] errors check: some arguments are bigger than an integer<br>
+- [x] remove unusued "initial index of the node"<br>
+- [x] revrite ft_heap_new(**heap) & ft_heap_add(**heap)<br>
+- [ ] check how arguments should be passed to your main: string or many argv<br>
+- [ ] REMOVE wildcards from Makefiles<br>
+- [ ] split heap_utils.c into separate files depending on function<br>
+- [ ] norminette!!!!<br><br>
 
 # Short notes on Makefiles
 

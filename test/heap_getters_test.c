@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:57:42 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 14:21:57 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:48:57 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	test_ft_get_size(void)
 	int		size;
 	int		i;
 
-	heap = ft_heapnew(33, 0);
+	heap = ft_heapnew(33);
 	size = ft_get_size(heap);
 	if (size != 1)
 		ft_printf("Test 1 ft_get_size failed, expected: 1, got: %d\n", size);
@@ -30,11 +30,11 @@ void	test_ft_get_size(void)
 	if (size != 0)
 		ft_printf("Test 2 ft_get_size failed, expected: 0, got: %d\n", size);
 	size = 7;
-	heap = ft_heapnew(1, 0);
+	heap = ft_heapnew(1);
 	i = 1;
 	while (size-- > 0)
 	{
-		heap = ft_heapadd(size, 1, heap);
+		ft_heapadd(size, &heap);
 		i++;
 	}
 	size = ft_get_size(heap);
