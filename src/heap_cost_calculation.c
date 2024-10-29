@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/14 22:28:43 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:25:45 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,15 @@ int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
 	
 	a_rotation = ft_nb_at_head(nb, a);
 	b_rotation = ft_get_heap_b_rotation(nb, b);
+	if (a_rotation * b_rotation > 0)
+	{
+		// both positive or both negative -> take max absolute
+		
+	}
+	else
+	{
+		// two different directions - take sum absolute
+	}
 	return (ft_max(a_rotation, b_rotation) + 1); // TODO: correct
 }
 
@@ -67,6 +76,7 @@ int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
  * at the head, and ... yeah... exactly, kind of difficult to explain
  * 
  * Developed when running different examples of this rotation.
+ * 
 */
 int	ft_get_heap_b_rotation(int nb, t_heap *b)
 {
@@ -109,7 +119,6 @@ int	ft_get_heap_b_rotation(int nb, t_heap *b)
  * If the return nb is positive we are rotatating (shifting up)
  * If the return nb is negative we should reverse rotate (shift down)
  * 
- * TODO: correct
 */
 int	ft_nb_at_head(int nb, t_heap *heap)
 {
@@ -121,5 +130,5 @@ int	ft_nb_at_head(int nb, t_heap *heap)
 	if (nb_pos < a_size/2)
 		return (nb_pos);
 	else
-		return (a_size - nb_pos);
+		return ((a_size - nb_pos + 1) * -1);
 }
