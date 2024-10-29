@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/14 22:28:17 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:36:59 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ typedef struct s_heap
 	int				push_b_cost;
 	struct s_heap	*next;
 } t_heap;
+
+typedef enum e_push_swap_error
+{
+	DUPLICATION_ERROR = -33,
+}	t_push_swap_error;
 
 // PROGRAM functions
 t_heap	*parse_arg(char *string);

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/14 21:05:58 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/10/29 19:59:41 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_get_nb_pos(int nb, t_heap *heap)
 	int	pos;
 
 	pos = 0;
-	while (nb != heap->number);
+	while (nb != heap->number)
 	{
 		pos++;
 		heap = heap->next;

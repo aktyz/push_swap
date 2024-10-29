@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/10/13 19:10:14 by zslowian         ###   ########.fr        #
+#    Updated: 2024/10/29 16:36:18 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ test: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_operations_test.c -o obj/heap_operations_test.o
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_checkers_test.c -o obj/heap_checkers_test.o
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/push_swap_utils_test.c -o obj/push_swap_utils_test.o -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/push_swap_utils_test.c -o obj/push_swap_utils_test.o
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_cost_calculation_test.c -o obj/heap_cost_calculation_test.o
 	$(CC) obj/test_main.o obj/push_swap_utils_test.o obj/heap_checkers_test.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_test
 
 debug: $(OBJ) test
@@ -64,6 +65,7 @@ debug: $(OBJ) test
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_operations_test.c -o obj/heap_operations_test.o -g
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_checkers_test.c -o obj/heap_checkers_test.o -g
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/push_swap_utils_test.c -o obj/push_swap_utils_test.o -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_cost_calculation_test.c -o obj/heap_cost_calculation_test.o -g
 	$(CC) obj/test_main.o obj/push_swap_utils_test.o obj/heap_checkers_test.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_debug -g
 
 re: fclean all
