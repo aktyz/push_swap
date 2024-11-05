@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/29 16:25:45 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:04:43 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,16 @@ int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
 	b_rotation = ft_get_heap_b_rotation(nb, b);
 	if (a_rotation * b_rotation > 0)
 	{
-		// both positive or both negative -> take max absolute
-		
+		a_rotation = ft_absolute(a_rotation);
+		b_rotation = ft_absolute(b_rotation);
+		return (ft_max(a_rotation, b_rotation));	
 	}
 	else
 	{
-		// two different directions - take sum absolute
+		a_rotation = ft_absolute(a_rotation);
+		b_rotation = ft_absolute(b_rotation);
+		return (a_rotation + b_rotation);
 	}
-	return (ft_max(a_rotation, b_rotation) + 1); // TODO: correct
 }
 
 /**

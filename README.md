@@ -23,7 +23,8 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-> PICK-UP: start working on cost-calculation function
+> PICK-UP: heap_cost_calculation - write a function updating the struct field with the cost value so that you can look for the lowest value in the next steps
+> write a save in the node of the direction and number of rotations to get number to the head of the heap
 
 IN_PROGRESS => implement Turk algorithm<br>
 - [ ] ft_cost_calculation(*a, *b); // returning a pointer to the node with the lowest operation cost<br>

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/29 16:36:59 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:06:12 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_heap
 {
 	int				number;
 	int				push_b_cost;
+	int				distance_from_head;
 	struct s_heap	*next;
 } t_heap;
 
