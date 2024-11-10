@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/14 15:48:06 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/10 20:31:44 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 t_heap	*parse_arg(char *string);
 void	ft_push_swap(t_heap *heap);
+void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
+void	ft_push_a_sorted(t_heap **heap, t_heap **b);
 
 t_heap	*parse_arg(char *string)
 {
@@ -22,7 +24,7 @@ t_heap	*parse_arg(char *string)
 	char	**str_array;
 	int		number;
 	int 	i;
-	
+
 	i = 0;
 	str_array = ft_split(string, ' ');
 	number = ft_atoi(*str_array);
@@ -48,6 +50,7 @@ t_heap	*parse_arg(char *string)
 void	ft_push_swap(t_heap *heap)
 {
 	int		size;
+	t_heap	*tmp;
 	t_heap	*b;
 
 	size = ft_get_size(heap);
@@ -60,26 +63,121 @@ void	ft_push_swap(t_heap *heap)
 		}
 	else if (size == 3)
 		ft_sort_three(&heap);
-	else 
+	else
 		{
 			push_b(&heap, &b);
 			if (ft_get_size(heap) == 3)
 			{
 				ft_sort_three(&heap);
-				// while (ft_get_size(b))
-				// 		push_a_to_the_correct_place
+				while (ft_get_size(b))
+					ft_push_a_sorted(&heap, &b);
 				return ;
 			}
 			push_b(&heap, &b);
 			while(ft_get_size(heap) > 3)
 			{
-				// calculate the cost of each element
-				// move the cheapest - push_b_to_the_correct_place
+				tmp = ft_cost_calculation(heap, b); // we will fill in the cost calculation and rotation dirrection
+				ft_necessary_rotations(tmp, &heap, &b);
+				push_b(&heap, &b);
 			}
 			ft_sort_three(&heap);
-			// while (ft_get_size(b))
-			// 		push_a_to_the_correct_place
+			while (ft_get_size(b))
+				ft_push_a_sorted(&heap, &b);
 		}
+}
+
+/**
+ * This function modifies both heap and heap b:
+ * - tmp node is moved to the head of heap
+ * - b is rotated so that we end up with node->number > tmp->nb at the head
+ */
+void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
+{
+	t_heap	*tmp_b;
+	int		a_rot;
+	int		min;
+	int		rest;
+	char	more;
+
+	tmp_b = &b;
+	a_rot = tmp->distance_from_head;
+	b_rot = ft_get_heap_b_rotation(tmp->number, b);
+	if (a_rot * b_rot > 0)
+	{
+		min = ft_min(ft_absolute(a_rot), ft_absolute(b_min));
+		rest = ft_max(ft_absolute(a_rot), ft_absolute(b_min)) - min;
+
+		while(min--)
+		{
+			if(a_rot > 0)
+			{
+				rotate_ab(*heap, *b);
+				a_rot--;
+				b_rot--;
+			}
+			else if(a_rot < 0)
+			{
+				reverse_rotate_ab(*heap, *b);
+				a_rot++;
+				b_rot++;
+			}
+		} // one of (a_rot, b_rot) should be zero; TODO: check on DEBUGGER
+		if (a_rot != 0)
+		{
+			if (a_rot > 0)
+			{
+				while (a_rot--)
+					rotate_a(*heap);
+			}
+			else
+			{
+				while (a_rot++)
+					reverse_rotate_a(*heap);
+			}
+		}
+		if (b_rot != 0)
+		{
+			if (b_rot > 0)
+			{
+				while (b_rot--)
+					rotate_b(*b);
+			}
+			else
+			{
+				while (b_rot++)
+					reverse_rotate_b(*b);
+			}
+		}
+	}
+	else
+	{
+		if (a_rot != 0)
+		{
+			if (a_rot > 0)
+			{
+				while (a_rot--)
+					rotate_a(*heap);
+			}
+			else
+			{
+				while (a_rot++)
+					reverse_rotate_a(*heap);
+			}
+		}
+		if (b_rot != 0)
+		{
+			if (b_rot > 0)
+			{
+				while (b_rot--)
+					rotate_b(*b);
+			}
+			else
+			{
+				while (b_rot++)
+					reverse_rotate_b(*b);
+			}
+		}
+	}
 }
 
 void	ft_sort_three(t_heap **heap)
@@ -88,4 +186,13 @@ void	ft_sort_three(t_heap **heap)
 		swap_a(heap);
 	if (!ft_is_sorted(*heap))
 		reverse_rotate_a(heap);
+}
+/**
+ * This function rotates a if necessary and push b head
+ * to a in the right order
+ *
+ */
+void	ft_push_a_sorted(t_heap **heap, t_heap **b)
+{
+
 }

@@ -27,7 +27,7 @@ DONE => Complete parse_arg() function as per subject requirements, reading from 
 > write a save in the node of the direction and number of rotations to get number to the head of the heap
 
 IN_PROGRESS => implement Turk algorithm<br>
-- [ ] ft_cost_calculation(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
+- [x] ft_cost_calculation(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
 - [ ] ft_push_b_correct_place(**a, **b); // returning void;<br>
 - [ ] ft_push_a_correct_place(**a, **b); // returning void;<br>
 
