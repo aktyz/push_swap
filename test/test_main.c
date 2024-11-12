@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/29 16:34:44 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/12 21:59:25 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ int	main(int argc, char *argv[])
 		return (0); // switch to error message
 	}
 	else
-	a = parse_arg(argv[1]); //My Program
+	{
+		ft_printf("\nBefore parsing\n");
+		a = parse_arg(argv[1]); //My Program
+		ft_printf("\nAfter parsing\n");
+	}
 	if (!a) //My Program
 	{
 		write(1, "Error - duplicated integers\n", 28);

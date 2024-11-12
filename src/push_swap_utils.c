@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/10 20:31:44 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:08:34 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,33 +91,29 @@ void	ft_push_swap(t_heap *heap)
  * - tmp node is moved to the head of heap
  * - b is rotated so that we end up with node->number > tmp->nb at the head
  */
-void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
+void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b)
 {
-	t_heap	*tmp_b;
 	int		a_rot;
+	int		b_rot;
 	int		min;
-	int		rest;
-	char	more;
 
-	tmp_b = &b;
 	a_rot = tmp->distance_from_head;
-	b_rot = ft_get_heap_b_rotation(tmp->number, b);
+	b_rot = ft_get_heap_b_rotation(tmp->number, *b);
 	if (a_rot * b_rot > 0)
 	{
-		min = ft_min(ft_absolute(a_rot), ft_absolute(b_min));
-		rest = ft_max(ft_absolute(a_rot), ft_absolute(b_min)) - min;
+		min = ft_min(ft_absolute(a_rot), ft_absolute(b_rot));
 
 		while(min--)
 		{
 			if(a_rot > 0)
 			{
-				rotate_ab(*heap, *b);
+				rotate_ab(heap, b);
 				a_rot--;
 				b_rot--;
 			}
 			else if(a_rot < 0)
 			{
-				reverse_rotate_ab(*heap, *b);
+				reverse_rotate_ab(heap, b);
 				a_rot++;
 				b_rot++;
 			}
@@ -127,12 +123,12 @@ void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
 			if (a_rot > 0)
 			{
 				while (a_rot--)
-					rotate_a(*heap);
+					rotate_a(heap);
 			}
 			else
 			{
 				while (a_rot++)
-					reverse_rotate_a(*heap);
+					reverse_rotate_a(heap);
 			}
 		}
 		if (b_rot != 0)
@@ -140,12 +136,12 @@ void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
 			if (b_rot > 0)
 			{
 				while (b_rot--)
-					rotate_b(*b);
+					rotate_b(b);
 			}
 			else
 			{
 				while (b_rot++)
-					reverse_rotate_b(*b);
+					reverse_rotate_b(b);
 			}
 		}
 	}
@@ -156,12 +152,12 @@ void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
 			if (a_rot > 0)
 			{
 				while (a_rot--)
-					rotate_a(*heap);
+					rotate_a(heap);
 			}
 			else
 			{
 				while (a_rot++)
-					reverse_rotate_a(*heap);
+					reverse_rotate_a(heap);
 			}
 		}
 		if (b_rot != 0)
@@ -169,12 +165,12 @@ void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
 			if (b_rot > 0)
 			{
 				while (b_rot--)
-					rotate_b(*b);
+					rotate_b(b);
 			}
 			else
 			{
 				while (b_rot++)
-					reverse_rotate_b(*b);
+					reverse_rotate_b(b);
 			}
 		}
 	}
@@ -194,5 +190,10 @@ void	ft_sort_three(t_heap **heap)
  */
 void	ft_push_a_sorted(t_heap **heap, t_heap **b)
 {
-
+	while (**b)
+	{
+		// rotate heap to get correct value at the top and bottom
+		push_a(heap, b);
+		**b = (**b)->next;
+	}
 }

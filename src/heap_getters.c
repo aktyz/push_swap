@@ -6,18 +6,18 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/29 19:59:41 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:42:53 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_heap	*ft_gettail(t_heap *heap);
+t_heap	*ft_get_tail(t_heap *heap);
 int		ft_get_size(t_heap *heap);
 int		ft_get_min(t_heap *heap);
 int		ft_get_nb_pos(int nb, t_heap *heap);
 
-t_heap	*ft_gettail(t_heap *heap)
+t_heap	*ft_get_tail(t_heap *heap)
 {
 	while (heap->next)
 		heap = heap->next;
@@ -26,7 +26,7 @@ t_heap	*ft_gettail(t_heap *heap)
 
 /**
  * Returns number of nodes in the heap.
- * 
+ *
 */
 int	ft_get_size(t_heap *heap)
 {

@@ -23,25 +23,26 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-> PICK-UP: heap_cost_calculation - write a function updating the struct field with the cost value so that you can look for the lowest value in the next steps
-> write a save in the node of the direction and number of rotations to get number to the head of the heap
+> PICK-UP: find segmentation fault in the parsing function
 
 IN_PROGRESS => implement Turk algorithm<br>
 - [x] ft_cost_calculation(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
-- [ ] ft_push_b_correct_place(**a, **b); // returning void;<br>
+- [x] ft_push_b_correct_place(**a, **b); // returning void;<br>
 - [ ] ft_push_a_correct_place(**a, **b); // returning void;<br>
+- [ ] add unit tests to the cost calculation functions to make sure we get a sorted array in the end<br><br>
 
 TODO =><br>
-- [ ] correct ft_nb_at_head() to account for the direction of the rotation
-- [ ] correct return from ft_node_cost_calculation - depeinding on the combination of positive negative a & b rotations
+
 - [ ] errors check: some arguments aren’t integers<br>
 - [ ] errors check: some arguments are bigger than an integer<br>
-- [x] remove unusued "initial index of the node"<br>
-- [x] revrite ft_heap_new(**heap) & ft_heap_add(**heap)<br>
+- [ ] norminette!!!!<br>
 - [ ] check how arguments should be passed to your main: string or many argv<br>
 - [ ] REMOVE wildcards from Makefiles<br>
-- [ ] split heap_utils.c into separate files depending on function<br>
-- [ ] norminette!!!!<br><br>
+- [x] split heap_utils.c into separate files depending on function<br>
+- [x] correct ft_nb_at_head() to account for the direction of the rotation<br>
+- [x] correct return from ft_node_cost_calculation - depeinding on the combination of positive negative a & b rotations<br>
+- [x] remove unusued "initial index of the node"<br>
+- [x] revrite ft_heap_new(**heap) & ft_heap_add(**heap)<br><br>
 
 # Short notes on Makefiles
 

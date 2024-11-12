@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/13 17:16:46 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:48:21 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(int argc, char *argv[])
 {
 	t_heap	*stack_a;
-	
+
 	if (argc != 2)
 	{
 		write(1, "Error - to little/many arguments\n", 33);
@@ -29,6 +29,6 @@ int main(int argc, char *argv[])
 		return (0); // switch to error message
 	}
 	ft_push_swap(stack_a);
-	free(stack_a);
+	ft_destroyheap(&stack_a);
 	return (0);
 }

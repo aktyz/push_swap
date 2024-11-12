@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/10/29 16:36:18 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/12 21:56:36 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,21 +52,31 @@ clean:
 
 test: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_operations_test.c -o obj/heap_operations_test.o
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_checkers_test.c -o obj/heap_checkers_test.o
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/push_swap_utils_test.c -o obj/push_swap_utils_test.o
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_check_test.c -o obj/heap_check_test.o
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_cost_calculation_test.c -o obj/heap_cost_calculation_test.o
-	$(CC) obj/test_main.o obj/push_swap_utils_test.o obj/heap_checkers_test.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_test
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_reverse_rotate_test.c -o obj/heap_reverse_rotate_test.o
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_swap_test.c -o obj/heap_swap_test.o
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_utils_test.c -o obj/heap_utils_test.o
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/push_swap_utils_test.c -o obj/push_swap_utils_test.o
+	$(CC) obj/heap_check.o obj/heap_check_test.o obj/heap_cost_calculation.o obj/heap_cost_calculation_test.o \
+		obj/heap_getters.o obj/heap_getters_test.o obj/heap_print_utils.o obj/heap_reverse_rotate.o obj/heap_reverse_rotate_test.o \
+		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
+		obj/push_swap_utils_test.o obj/test_main.o ./libft.a -o run_test
 
 debug: $(OBJ) test
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o -g
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_operations_test.c -o obj/heap_operations_test.o -g
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_checkers_test.c -o obj/heap_checkers_test.o -g
-	$(CC) $(CFLAGS) $(INCLUDES) -c test/push_swap_utils_test.c -o obj/push_swap_utils_test.o -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_check_test.c -o obj/heap_check_test.o -g
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_cost_calculation_test.c -o obj/heap_cost_calculation_test.o -g
-	$(CC) obj/test_main.o obj/push_swap_utils_test.o obj/heap_checkers_test.o obj/heap_getters_test.o obj/heap_operations_test.o obj/push_swap_utils.o obj/heap_utils.o obj/heap_print_utils.o obj/heap_getters.o ./libft.a -o run_debug -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_getters_test.c -o obj/heap_getters_test.o -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_reverse_rotate_test.c -o obj/heap_reverse_rotate_test.o -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_swap_test.c -o obj/heap_swap_test.o -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_utils_test.c -o obj/heap_utils_test.o -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c test/push_swap_utils_test.c -o obj/push_swap_utils_test.o -g
+	$(CC) obj/heap_check.o obj/heap_check_test.o obj/heap_cost_calculation.o obj/heap_cost_calculation_test.o \
+		obj/heap_getters.o obj/heap_getters_test.o obj/heap_print_utils.o obj/heap_reverse_rotate.o obj/heap_reverse_rotate_test.o \
+		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
+		obj/push_swap_utils_test.o obj/test_main.o ./libft.a -o run_debug -g
 
 re: fclean all
 

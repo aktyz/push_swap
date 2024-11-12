@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/05 18:06:12 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:56:04 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ typedef enum e_push_swap_error
 // PROGRAM functions
 t_heap	*parse_arg(char *string);
 void	ft_push_swap(t_heap *heap);
+void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
+void	ft_push_a_sorted(t_heap **heap, t_heap **b);
 t_heap	*ft_cost_calculation(t_heap *a, t_heap *b);
 int		ft_node_cost_calculation(int nb, t_heap *a, t_heap *b);
 int		ft_get_heap_b_rotation(int nb, t_heap *b);
@@ -43,6 +45,7 @@ void	ft_heapadd(int number, t_heap **heap);
 void	ft_destroyheap(t_heap **heap);
 
 // HEAPS operations
+void	push_a(t_heap **a, t_heap **b);
 void	push_b(t_heap **a, t_heap **b);
 int		swap(t_heap **heap);
 void	swap_a(t_heap **a);
@@ -52,9 +55,13 @@ int		reverse_rotate(t_heap **heap);
 void	reverse_rotate_a(t_heap **a);
 void	reverse_rotate_b(t_heap **b);
 void	reverse_rotate_ab(t_heap **a, t_heap **b);
+int		rotate(t_heap **heap);
+void	rotate_a(t_heap **a);
+void	rotate_b(t_heap **b);
+void	rotate_ab(t_heap **a, t_heap **b);
 
 // HEAP getters
-t_heap	*ft_gettail(t_heap *heap);
+t_heap	*ft_get_tail(t_heap *heap);
 int		ft_get_size(t_heap *heap);
 int		ft_get_min(t_heap *heap);
 int		ft_get_nb_pos(int nb, t_heap *heap);
@@ -74,5 +81,6 @@ void	test_push_b(void);
 void	test_swap(void);
 void	test_reverse_rotate(void);
 void	test_ft_sort_three(void);
+void	test_ft_nb_at_head(void);
 
 #endif

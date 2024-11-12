@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/10 19:49:23 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:41:25 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_heap	*ft_cost_calculation(t_heap *a, t_heap *b)
 	while (a)
 	{
 		a->push_b_cost = ft_node_cost_calculation(a->number, head, b);
-		a->distance_from_head = ft_nb_at_head(a->number, head, b);
+		a->distance_from_head = ft_nb_at_head(a->number, a);
 		a = a->next;
 	}
 	a = head;

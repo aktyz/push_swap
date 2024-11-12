@@ -6,11 +6,16 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:02:26 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/14 15:52:06 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:30:11 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_print_heap_node(t_heap *node);
+void	ft_print_heap(t_heap *heap);
+void	ft_print_heap_size(t_heap *heap);
+void	ft_print_ab(t_heap *a, t_heap *b);
 
 void	ft_print_heap_node(t_heap *node)
 {
