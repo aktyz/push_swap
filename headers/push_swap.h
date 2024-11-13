@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 14:46:13 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:04:24 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_sort_three(t_heap **heap);
 void	ft_push_a_sorted(t_heap **heap, t_heap **b);
 t_heap	*ft_cost_calculation(t_heap *a, t_heap *b);
 int		ft_node_cost_calculation(int nb, t_heap *a, t_heap *b);
-int		ft_get_heap_b_rotation(int nb, t_heap *b);
+int		ft_get_b_rot(int nb, t_heap *b);
 int		ft_nb_at_head(int nb, t_heap *heap);
 
 // HEAP construct & desctruct
@@ -83,5 +83,6 @@ void	test_swap(void);
 void	test_reverse_rotate(void);
 void	test_ft_sort_three(void);
 void	test_ft_nb_at_head(void);
+void	test_ft_get_b_rot(void);
 
 #endif

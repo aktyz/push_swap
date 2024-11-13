@@ -6,18 +6,20 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:33:08 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 15:01:13 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:24:28 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	test_ft_nb_at_head(void);
+void	test_ft_get_b_rot(void);
 
 void	test_ft_nb_at_head(void)
 {
 	t_heap	*heap;
 	int		result;
+
 	ft_printf("\n---------------------Testing ft_nb_at_head---------------------\n");
 	heap = 0;
 	result = ft_nb_at_head(1, heap);
@@ -62,4 +64,37 @@ void	test_ft_nb_at_head(void)
 	if (result != -3)
 		ft_printf("\nTest 9 failed: expected -3, got: %d\n", result);
 	ft_destroyheap(&heap);
+	heap = ft_heapnew(1);
+	ft_heapadd(7, &heap);
+	ft_heapadd(5, &heap);
+	ft_heapadd(2, &heap);
+	result = ft_nb_at_head(7, heap);
+	if (result != 1)
+		ft_printf("\nTest 10 failed: expected 1, got: %d\n", result);
+	ft_destroyheap(&heap);
+}
+
+void	test_ft_get_b_rot(void)
+{
+	t_heap	*b;
+	t_heap	*a;
+	int		b_rot;
+
+	ft_printf("\n---------------------Testing ft_get_b_rot---------------------\n");
+	b = 0;
+	b = ft_heapnew(7);
+	ft_heapadd(5, &b);
+	ft_heapadd(2, &b);
+	ft_print_heap(b);
+	b_rot = ft_get_b_rot(1, b);
+	if (b_rot != 0)
+		ft_printf("Test case 1 failed: expected 0, got %d\n", b_rot);
+	a = ft_heapnew(1);
+	push_b(&a, &b);
+	b_rot = ft_get_b_rot(6, b);
+	if (b_rot != 2)
+		ft_printf("Test case 2 failed: expected 2, got %d\n", b_rot);
+	rotate_b(&b);
+	rotate_b(&b);
+	ft_print_heap(b);	
 }

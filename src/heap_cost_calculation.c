@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 14:55:29 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 20:10:50 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_heap	*ft_cost_calculation(t_heap *a, t_heap *b);
 int		ft_node_cost_calculation(int nb, t_heap *a, t_heap *b);
-int		ft_get_heap_b_rotation(int nb, t_heap *b);
+int		ft_get_b_rot(int nb, t_heap *b);
 int		ft_nb_at_head(int nb, t_heap *heap);
 
 /**
@@ -65,7 +65,7 @@ int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
 	int	b_rotation;
 
 	a_rotation = ft_nb_at_head(nb, a);
-	b_rotation = ft_get_heap_b_rotation(nb, b);
+	b_rotation = ft_get_b_rot(nb, b);
 	if (a_rotation * b_rotation > 0)
 	{
 		a_rotation = ft_absolute(a_rotation);
@@ -81,22 +81,25 @@ int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
 }
 
 /**
- * This one is tricky - we need to rotate B so that we have a node->number > nb
- * at the head, and ... yeah... exactly, kind of difficult to explain
- *
+ * This function finds the b heap node that should land at the head of
+ * b heap in order to be able to push_b nb in the right place.
+ * 
+ * It then returns the number of rotations to get this node
+ * to the head of heap b.
+ * 
  * Developed when running different examples of this rotation.
  *
 */
-int	ft_get_heap_b_rotation(int nb, t_heap *b)
+int	ft_get_b_rot(int nb, t_heap *b)
 {
 	int		new_head_nb;
 	int		prev;
-	t_heap	*head;
+	t_heap	*node;
 
 	prev = b->number;
-	head = b;
-	if (head->number > nb)
+	if (node->number > nb)
 	{
+		node = b;
 		while (b && b->number > nb)
 		{
 			if (b->number > prev)
@@ -105,20 +108,62 @@ int	ft_get_heap_b_rotation(int nb, t_heap *b)
 			b = b->next;
 		}
 	}
-	else if (head->number < nb)
+	else if (node->number < nb)
 	{
-		while (b && b->number < nb)
+		while (b && b->number > nb)
 		{
-			if (b->number > prev)
+			if (b->number < prev)
 				break;
 			prev = b->number;
 			b = b->next;
 		}
 	}
 	if (!b)
-		new_head_nb = head->number;
-	new_head_nb = b->number;
+		new_head_nb = node->number;
+	else
+		new_head_nb = b->number;
 	return (ft_nb_at_head(new_head_nb, b));
+}
+/**
+ * ft_get_b_rot rewritten with GitHub Copilot
+ * 
+ * TODO: Merge and test the two
+ */
+int	ft_get_b_rot_gpt(int nb, t_heap *b)
+{
+    int		rotations;
+    t_heap	*current;
+    t_heap	*prev;
+
+    if (!b)
+        return (0);
+
+    rotations = 0;
+    current = b;
+    prev = NULL;
+
+    while (current)
+    {
+        if (prev && prev->number < nb && current->number > nb)
+            break;
+        prev = current;
+        current = current->next;
+        rotations++;
+    }
+
+    // If we reached the end of the heap, we need to check the wrap-around case
+    if (!current)
+    {
+        current = b;
+        while (current && current->number > nb)
+        {
+            prev = current;
+            current = current->next;
+            rotations++;
+        }
+    }
+
+    return (rotations);
 }
 
 /**

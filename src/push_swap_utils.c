@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 13:57:17 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:03:09 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 	int		min;
 
 	a_rot = tmp->distance_from_head;
-	b_rot = ft_get_heap_b_rotation(tmp->number, *b);
+	b_rot = ft_get_b_rot(tmp->number, *b);
 	if (a_rot * b_rot > 0)
 	{
 		min = ft_min(ft_absolute(a_rot), ft_absolute(b_rot));

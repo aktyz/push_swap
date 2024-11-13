@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/11/12 21:56:36 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/13 16:32:07 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ test: $(OBJ)
 		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
 		obj/push_swap_utils_test.o obj/test_main.o ./libft.a -o run_test
 
-debug: $(OBJ) test
+debug: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_check_test.c -o obj/heap_check_test.o -g
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/heap_cost_calculation_test.c -o obj/heap_cost_calculation_test.o -g
