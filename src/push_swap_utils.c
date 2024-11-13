@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/12 22:08:34 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 13:57:17 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_heap	*parse_arg(char *string);
 void	ft_push_swap(t_heap *heap);
-void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
+void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
 void	ft_push_a_sorted(t_heap **heap, t_heap **b);
 
@@ -76,8 +76,8 @@ void	ft_push_swap(t_heap *heap)
 			push_b(&heap, &b);
 			while(ft_get_size(heap) > 3)
 			{
-				tmp = ft_cost_calculation(heap, b); // we will fill in the cost calculation and rotation dirrection
-				ft_necessary_rotations(tmp, &heap, &b);
+				tmp = ft_cost_calculation(heap, b);
+				ft_rot_ab(tmp, &heap, &b);
 				push_b(&heap, &b);
 			}
 			ft_sort_three(&heap);
@@ -91,7 +91,7 @@ void	ft_push_swap(t_heap *heap)
  * - tmp node is moved to the head of heap
  * - b is rotated so that we end up with node->number > tmp->nb at the head
  */
-void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b)
+void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 {
 	int		a_rot;
 	int		b_rot;
@@ -183,6 +183,7 @@ void	ft_sort_three(t_heap **heap)
 	if (!ft_is_sorted(*heap))
 		reverse_rotate_a(heap);
 }
+
 /**
  * This function rotates a if necessary and push b head
  * to a in the right order
@@ -190,10 +191,10 @@ void	ft_sort_three(t_heap **heap)
  */
 void	ft_push_a_sorted(t_heap **heap, t_heap **b)
 {
-	while (**b)
+	while (*b)
 	{
 		// rotate heap to get correct value at the top and bottom
 		push_a(heap, b);
-		**b = (**b)->next;
+		*b = (*b)->next;
 	}
 }

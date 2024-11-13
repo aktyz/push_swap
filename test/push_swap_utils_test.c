@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:07:25 by zslowian          #+#    #+#             */
-/*   Updated: 2024/10/14 15:50:55 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:14:29 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	test_ft_sort_three(void)
 {
 	t_heap *a;
 
+	ft_printf("\n---------------------Testing ft_sort_three---------------------\n");
 	a = ft_heapnew(9);
 	ft_heapadd(7, &a);
 	ft_heapadd(5, &a);

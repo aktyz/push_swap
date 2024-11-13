@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/12 21:59:25 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:37:22 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
-	t_heap		*a;
+	(void) argc;
+	(void) argv;
+	/**t_heap		*a;
 	t_heap		*temp;
 
 	if (argc != 2)
@@ -42,7 +44,7 @@ int	main(int argc, char *argv[])
 	ft_print_heap_size(a);
 	// ft_push_swap(a); //My Program
 	free(a); //My Program
-	free(temp); //My Program
+	free(temp); //My Program */
 	ft_printf("\nUNIT TESTS\n");
 	//test_ft_get_size();
 	//test_push_b();
@@ -50,6 +52,7 @@ int	main(int argc, char *argv[])
 	//test_swap();
 	//test_reverse_rotate();
 	//test_ft_sort_three();
+	//test_ft_get_nb_pos();
 	test_ft_nb_at_head();
 	ft_printf("\nUNIT TESTS COMPLETED\n");
 	return (0); //My Program

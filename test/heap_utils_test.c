@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:36:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/11 19:38:09 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:08:58 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	test_push_b(void)
 
 	a = 0;
 	b = 0;
-
+	ft_printf("\n---------------------Testing push_b---------------------\n");
 	a = ft_heapnew(7);
 	ft_heapadd(33, &a);
 	ft_printf("\n\nStack A before changes:\n");

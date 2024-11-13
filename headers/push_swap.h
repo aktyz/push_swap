@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/11 19:56:04 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:46:13 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef enum e_push_swap_error
 // PROGRAM functions
 t_heap	*parse_arg(char *string);
 void	ft_push_swap(t_heap *heap);
-void	ft_necessary_rotations(t_heap *tmp, t_heap **heap, t_heap **b);
+void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
 void	ft_push_a_sorted(t_heap **heap, t_heap **b);
 t_heap	*ft_cost_calculation(t_heap *a, t_heap *b);
@@ -77,6 +77,7 @@ void	ft_print_heap_size(t_heap *heap);
 void	ft_print_ab(t_heap *a, t_heap *b);
 void	test_ft_is_sorted(void);
 void	test_ft_get_size(void);
+void	test_ft_get_nb_pos(void);
 void	test_push_b(void);
 void	test_swap(void);
 void	test_reverse_rotate(void);
