@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 20:10:50 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:25:56 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,87 +83,39 @@ int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
 /**
  * This function finds the b heap node that should land at the head of
  * b heap in order to be able to push_b nb in the right place.
- * 
+ *
+ * In general case the new number should have a bigger number above
+ * (in the tail) and smaller number below (at the head).
+ *
+ * Two corner cases are when we are entering new biggest number or
+ * new smallest number - in this case we want the biggest number of the
+ * heap at the head of the heap for insertion.
+ *
  * It then returns the number of rotations to get this node
  * to the head of heap b.
- * 
+ *
  * Developed when running different examples of this rotation.
  *
 */
 int	ft_get_b_rot(int nb, t_heap *b)
 {
-	int		new_head_nb;
-	int		prev;
-	t_heap	*node;
+	t_heap	*is_new_head;
+	int		prev_nb;
 
-	prev = b->number;
-	if (node->number > nb)
-	{
-		node = b;
-		while (b && b->number > nb)
-		{
-			if (b->number > prev)
-				break;
-			prev = b->number;
-			b = b->next;
-		}
-	}
-	else if (node->number < nb)
-	{
-		while (b && b->number > nb)
-		{
-			if (b->number < prev)
-				break;
-			prev = b->number;
-			b = b->next;
-		}
-	}
 	if (!b)
-		new_head_nb = node->number;
-	else
-		new_head_nb = b->number;
-	return (ft_nb_at_head(new_head_nb, b));
-}
-/**
- * ft_get_b_rot rewritten with GitHub Copilot
- * 
- * TODO: Merge and test the two
- */
-int	ft_get_b_rot_gpt(int nb, t_heap *b)
-{
-    int		rotations;
-    t_heap	*current;
-    t_heap	*prev;
-
-    if (!b)
-        return (0);
-
-    rotations = 0;
-    current = b;
-    prev = NULL;
-
-    while (current)
-    {
-        if (prev && prev->number < nb && current->number > nb)
-            break;
-        prev = current;
-        current = current->next;
-        rotations++;
-    }
-
-    // If we reached the end of the heap, we need to check the wrap-around case
-    if (!current)
-    {
-        current = b;
-        while (current && current->number > nb)
-        {
-            prev = current;
-            current = current->next;
-            rotations++;
-        }
-    }
-
-    return (rotations);
+		return (0);
+	if (ft_get_max(b) < nb || ft_get_min(b) > nb)
+		return (ft_nb_at_head(ft_get_max(b), b));
+	is_new_head = b;
+	prev_nb = ft_get_tail(b)->number;
+	while (is_new_head)
+	{
+		if (prev_nb > nb && is_new_head->number < nb)
+			break;
+		prev_nb = is_new_head->number;
+		is_new_head = is_new_head->next;
+	}
+	return (ft_nb_at_head(is_new_head->number, b));
 }
 
 /**

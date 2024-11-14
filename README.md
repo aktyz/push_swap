@@ -23,7 +23,7 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-> PICK-UP: ft_get_b_rot() and ft_get_b_rot_gpt() Merge and finish testing
+> PICK-UP: test/debug your newly minted ft_get_b_rot() and add nice similar ft_get_a_rot()
 
 IN_PROGRESS => implement Turk algorithm<br>
 - [x] ft_cost_calculation(*a, *b); // returning a pointer to the node with the lowest operation cost<br>

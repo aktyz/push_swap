@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 14:37:03 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:11:48 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int	ft_get_size(t_heap *heap)
 	}
 	return (i);
 }
-
+/**
+ * Function returns the minimum number in the heap.
+ *
+ */
 int		ft_get_min(t_heap *heap)
 {
 	int	min;
@@ -57,12 +60,30 @@ int		ft_get_min(t_heap *heap)
 	return (min);
 }
 /**
+ * Function returns the maximum number in the heap.
+ *
+ */
+int		ft_get_max(t_heap *heap)
+{
+	int	max;
+
+	max = heap->number;
+	while (heap)
+	{
+		if (heap->number > max)
+			max = heap->number;
+		heap = heap->next;
+	}
+	return (max);
+}
+
+/**
  * Function assigns the current posiotion number of the node
  * in the heap.
- * 
+ *
  * Needed to calculate the required heap rotations to get this number
  * to the head.
- * 
+ *
  */
 int		ft_get_nb_pos(int nb, t_heap *heap)
 {
