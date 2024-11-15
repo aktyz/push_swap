@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 15:04:24 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 15:32:07 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	rotate_ab(t_heap **a, t_heap **b);
 t_heap	*ft_get_tail(t_heap *heap);
 int		ft_get_size(t_heap *heap);
 int		ft_get_min(t_heap *heap);
+int		ft_get_max(t_heap *heap);
 int		ft_get_nb_pos(int nb, t_heap *heap);
 
 // HEAP checks

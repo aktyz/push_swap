@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:33:08 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 18:24:28 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 15:40:34 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,37 @@ void	test_ft_get_b_rot(void)
 
 	ft_printf("\n---------------------Testing ft_get_b_rot---------------------\n");
 	b = 0;
+	b_rot = ft_get_b_rot(3, b);
+	if (b_rot != 0)
+		ft_printf("Test case 0 failed: expected 0, got %d\n", b_rot);
+	else
+		ft_printf("\n\n");
 	b = ft_heapnew(7);
 	ft_heapadd(5, &b);
 	ft_heapadd(2, &b);
+	ft_printf("\n\nHeap before test case 1:\n");
 	ft_print_heap(b);
 	b_rot = ft_get_b_rot(1, b);
 	if (b_rot != 0)
 		ft_printf("Test case 1 failed: expected 0, got %d\n", b_rot);
+	else
+		ft_printf("\n\n");
 	a = ft_heapnew(1);
 	push_b(&a, &b);
+	ft_printf("\n\nHeap before test case 2:\n");
+	ft_print_heap(b);
 	b_rot = ft_get_b_rot(6, b);
-	if (b_rot != 2)
-		ft_printf("Test case 2 failed: expected 2, got %d\n", b_rot);
-	rotate_b(&b);
-	rotate_b(&b);
-	ft_print_heap(b);	
+	if (b_rot != -2)
+		ft_printf("Test case 2 failed: expected -2, got %d\n", b_rot);
+	else
+		ft_printf("\n\n");
+	reverse_rotate_b(&b);
+	reverse_rotate_b(&b);
+	ft_printf("\n\nHeap before test case 3:\n");
+	ft_print_heap(b);
+	b_rot = ft_get_b_rot(4, b);
+	if (b_rot != 1)
+		ft_printf("Test case 3 failed: expected 1, got %d\n", b_rot);
+	else
+		ft_printf("\n\n");
 }
