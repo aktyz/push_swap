@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:19:46 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:35:32 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ int		ft_get_a_rot(int nb, t_heap *a)
 		return (0);
 	if (ft_get_max(a) < nb || ft_get_min(a) > nb)
 		return (ft_nb_at_head(ft_get_min(a), a));
-	is_new_head = b;
+	is_new_head = a;
 	prev_nb = ft_get_tail(a)->number;
 	while (is_new_head)
 	{

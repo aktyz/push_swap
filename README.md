@@ -23,7 +23,7 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-> PICK-UP:
+> PICK-UP: When running the ./run_debug I am getting segmentation fault, however the ./push_swap seems to work fine on three numbers :P
 
 IN_PROGRESS => implement Turk algorithm<br>
 - [x] ft_get_lowest_cost_node(*a, *b); // returning a pointer to the node with the lowest operation cost<br>

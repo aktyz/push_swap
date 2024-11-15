@@ -6,17 +6,18 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:32:19 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:38:55 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_get_min_at_head(**heap);
+//static void	ft_get_min_at_head(**heap);
 
 int main(int argc, char *argv[])
 {
 	t_heap	*stack_a;
+	int		rot;
 
 	if (argc != 2)
 	{
@@ -31,12 +32,22 @@ int main(int argc, char *argv[])
 		return (0); // switch to error message
 	}
 	ft_push_swap(stack_a);
-	ft_get_min_at_head(stack_a);
+	rot = ft_nb_at_head(ft_get_min(stack_a), stack_a);
+	if (rot > 0)
+	{
+		while (rot--)
+			rotate_a(&stack_a);
+	}
+	if (rot < 0)
+	{
+		while (rot++)
+			reverse_rotate_a(&stack_a);
+	}
 	ft_destroyheap(&stack_a);
 	return (0);
 }
 
-static void	ft_get_min_at_head(**heap)
+/*static void	ft_get_min_at_head(**heap)
 {
 	int	rot;
 
@@ -51,4 +62,4 @@ static void	ft_get_min_at_head(**heap)
 		while (rot++)
 			reverse_rotate_a(heap);
 	}
-}
+}*/

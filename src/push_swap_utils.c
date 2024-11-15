@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:32:57 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:44:35 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,8 +195,7 @@ void	ft_push_a_sorted(t_heap **heap, t_heap **b)
 
 	while (*b)
 	{
-		// rotate heap to get correct value at the top and bottom
-		a_rot = ft_get_a_rot(b->number, *heap);
+		a_rot = ft_get_a_rot((*b)->number, *heap);
 		if (a_rot > 0)
 		{
 			while (a_rot--)
