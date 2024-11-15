@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/14 16:25:56 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:15:25 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_heap	*ft_cost_calculation(t_heap *a, t_heap *b);
 int		ft_node_cost_calculation(int nb, t_heap *a, t_heap *b);
 int		ft_get_b_rot(int nb, t_heap *b);
+int		ft_get_a_rot(int nb, t_heap *a);
 int		ft_nb_at_head(int nb, t_heap *heap);
 
 /**
@@ -118,6 +119,43 @@ int	ft_get_b_rot(int nb, t_heap *b)
 	return (ft_nb_at_head(is_new_head->number, b));
 }
 
+/**
+ * This function finds the a heap node that should land at the head of
+ * a heap in order to be able to push_a nb in the right place.
+ *
+ * In general case the new number should have a smaller number above
+ * (in the tail) and bigger number below (at the head).
+ *
+ * Two corner cases are when we are entering new biggest number or
+ * new smallest number - in this case we want the smallest number of the
+ * heap at the head of the heap for insertion.
+ *
+ * It then returns the number of rotations to get this node
+ * to the head of heap a.
+ *
+ * Developed by modifying ft_get_b_rot().
+ *
+*/
+int		ft_get_a_rot(int nb, t_heap *a)
+{
+	t_heap	*is_new_head;
+	int		prev_nb;
+
+	if (!a)
+		return (0);
+	if (ft_get_max(a) < nb || ft_get_min(a) > nb)
+		return (ft_nb_at_head(ft_get_min(a), a));
+	is_new_head = b;
+	prev_nb = ft_get_tail(a)->number;
+	while (is_new_head)
+	{
+		if (prev_nb < nb && is_new_head->number > nb)
+			break;
+		prev_nb = is_new_head->number;
+		is_new_head = is_new_head->next;
+	}
+	return (ft_nb_at_head(is_new_head->number, a));
+}
 /**
  * Function returning number representing the rotation of the heap,
  * that will result nb being at the head of it.

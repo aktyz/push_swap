@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 15:32:07 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:15:57 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_sort_three(t_heap **heap);
 void	ft_push_a_sorted(t_heap **heap, t_heap **b);
 t_heap	*ft_cost_calculation(t_heap *a, t_heap *b);
 int		ft_node_cost_calculation(int nb, t_heap *a, t_heap *b);
+int		ft_get_a_rot(int nb, t_heap *a);
 int		ft_get_b_rot(int nb, t_heap *b);
 int		ft_nb_at_head(int nb, t_heap *heap);
 
