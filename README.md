@@ -26,10 +26,10 @@ DONE => Complete parse_arg() function as per subject requirements, reading from 
 > PICK-UP:
 
 IN_PROGRESS => implement Turk algorithm<br>
-- [x] ft_cost_calculation(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
+- [x] ft_get_lowest_cost_node(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
 - [x] ft_push_b_correct_place(**a, **b); // returning void;<br>
-- [ ] ft_push_a_correct_place(**a, **b); // returning void;<br>
-- [ ] add unit tests to the cost calculation functions to make sure we get a sorted array in the end<br><br>
+- [x] ft_push_a_correct_place(**a, **b); // returning void;<br>
+- [x] add unit tests to the cost calculation functions to make sure we get a sorted array in the end<br><br>
 
 TODO =><br>
 

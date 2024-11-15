@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 15:03:09 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:32:57 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_push_swap(t_heap *heap)
 			push_b(&heap, &b);
 			while(ft_get_size(heap) > 3)
 			{
-				tmp = ft_cost_calculation(heap, b);
+				tmp = ft_get_lowest_cost_node(heap, b);
 				ft_rot_ab(tmp, &heap, &b);
 				push_b(&heap, &b);
 			}
@@ -191,10 +191,22 @@ void	ft_sort_three(t_heap **heap)
  */
 void	ft_push_a_sorted(t_heap **heap, t_heap **b)
 {
+	int	a_rot;
+
 	while (*b)
 	{
 		// rotate heap to get correct value at the top and bottom
+		a_rot = ft_get_a_rot(b->number, *heap);
+		if (a_rot > 0)
+		{
+			while (a_rot--)
+				rotate_a(heap);
+		}
+		if (a_rot < 0)
+		{
+			while (a_rot++)
+				reverse_rotate_a(heap);
+		}
 		push_a(heap, b);
-		*b = (*b)->next;
 	}
 }

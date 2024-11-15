@@ -6,13 +6,13 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:15:25 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:19:46 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_heap	*ft_cost_calculation(t_heap *a, t_heap *b);
+t_heap	*ft_get_lowest_cost_node(t_heap *a, t_heap *b);
 int		ft_node_cost_calculation(int nb, t_heap *a, t_heap *b);
 int		ft_get_b_rot(int nb, t_heap *b);
 int		ft_get_a_rot(int nb, t_heap *a);
@@ -28,7 +28,7 @@ int		ft_nb_at_head(int nb, t_heap *heap);
  * Both stacks are not modified in any way in this function.
  *
 */
-t_heap	*ft_cost_calculation(t_heap *a, t_heap *b)
+t_heap	*ft_get_lowest_cost_node(t_heap *a, t_heap *b)
 {
 	t_heap	*head;
 	int		lowest;
