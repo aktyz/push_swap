@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:43:37 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:15:49 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
-	t_heap	*a;
+	(void) argc;
+	(void) argv;
+	/**t_heap	*a;
 	t_heap	*temp;
 	int		rot;
 
@@ -53,8 +55,8 @@ int	main(int argc, char *argv[])
 			reverse_rotate_a(&a);
 	}
 	ft_destroyheap(&a); //My Program
-	ft_destroyheap(&temp); //My Program
-	//ft_printf("\nUNIT TESTS\n");
+	ft_destroyheap(&temp); //My Program*/
+	ft_printf("\nUNIT TESTS\n");
 	//test_ft_get_size();
 	//test_push_b();
 	//test_ft_is_sorted();
@@ -64,6 +66,7 @@ int	main(int argc, char *argv[])
 	//test_ft_get_nb_pos();
 	//test_ft_nb_at_head();
 	//test_ft_get_b_rot();
-	//ft_printf("\nUNIT TESTS COMPLETED\n");
+	test_ft_atof();
+	ft_printf("\nUNIT TESTS COMPLETED\n");
 	return (0); //My Program
 }

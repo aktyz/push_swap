@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:19:44 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:31:19 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,18 @@ typedef struct s_heap
 typedef enum e_push_swap_error
 {
 	DUPLICATION_ERROR = -33,
+	OVERFLOW = 77,
 }	t_push_swap_error;
+
+typedef struct s_atof
+{
+	long					number;
+	t_push_swap_error		error;
+}	t_atof;
 
 // PROGRAM functions
 t_heap	*parse_arg(char *string);
+t_atof	*ft_atof(const char *str);
 void	ft_push_swap(t_heap *heap);
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
@@ -86,5 +94,6 @@ void	test_reverse_rotate(void);
 void	test_ft_sort_three(void);
 void	test_ft_nb_at_head(void);
 void	test_ft_get_b_rot(void);
+void	test_ft_atof(void);
 
 #endif

@@ -34,8 +34,8 @@ DONE => implement Turk algorithm<br>
 TODO =><br>
 
 - [ ] resolve segmentation fault - most probably in the last developed funcitons (not tested)
-- [ ] errors check: some arguments aren’t integers<br>
-- [ ] errors check: some arguments are bigger than an integer<br>
+> - [ ] errors check: some arguments aren’t integers<br>
+> - [ ] errors check: some arguments are bigger than an integer<br>
 - [ ] norminette!!!!<br>
 - [ ] check how arguments should be passed to your main: string or many argv<br>
 - [ ] run Valgrind check
