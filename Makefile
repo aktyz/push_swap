@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/11/15 19:22:46 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/21 17:08:56 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ $(NAME): $(OBJ)
 all: $(NAME)
 
 libft:
+	@git clone git@github.com:aktyz/libft.git
 	@$(MAKE) -C ./libft
 
 fclean: clean
