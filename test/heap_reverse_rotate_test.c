@@ -17,7 +17,8 @@ void	test_reverse_rotate(void);
 void	test_reverse_rotate(void)
 {
 	t_heap	*a;
-	ft_printf("\n---------------------Testing reverse_rotate---------------------\n");
+
+	ft_printf("\n--------Testing reverse_rotate--------\n");
 	a = 0;
 	reverse_rotate_a(&a);
 	a = ft_heapnew(45);

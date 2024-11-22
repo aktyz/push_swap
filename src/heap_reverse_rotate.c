@@ -58,7 +58,7 @@ void	reverse_rotate_ab(t_heap **a, t_heap **b)
 
 	ra = reverse_rotate(a);
 	rb = reverse_rotate(b);
-	if(ra && rb)
+	if (ra && rb)
 		ft_printf("rrr\n");
 	else if (ra)
 		ft_printf("rra\n");

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 15:32:21 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:21:49 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ int	ft_get_size(t_heap *heap)
 	}
 	return (i);
 }
+
 /**
  * Function returns the minimum number in the heap.
  *
  */
-int		ft_get_min(t_heap *heap)
+int	ft_get_min(t_heap *heap)
 {
 	int	min;
 
@@ -60,11 +61,12 @@ int		ft_get_min(t_heap *heap)
 	}
 	return (min);
 }
+
 /**
  * Function returns the maximum number in the heap.
  *
  */
-int		ft_get_max(t_heap *heap)
+int	ft_get_max(t_heap *heap)
 {
 	int	max;
 
@@ -86,7 +88,7 @@ int		ft_get_max(t_heap *heap)
  * to the head.
  *
  */
-int		ft_get_nb_pos(int nb, t_heap *heap)
+int	ft_get_nb_pos(int nb, t_heap *heap)
 {
 	int	pos;
 

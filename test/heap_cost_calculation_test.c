@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:33:08 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 15:40:34 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:31:57 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,28 @@ void	test_ft_nb_at_head(void)
 	t_heap	*heap;
 	int		result;
 
-	ft_printf("\n---------------------Testing ft_nb_at_head---------------------\n");
+	ft_printf("\n--------Testing ft_nb_at_head--------\n");
 	heap = 0;
 	result = ft_nb_at_head(1, heap);
-	if (result != 0)// handle case where the heap is null
+	if (result != 0)
 		ft_printf("\nTest 1 failed: expected 0, got: %d\n", result);
-
 	heap = ft_heapnew(1);
 	result = ft_nb_at_head(1, heap);
-	if (result != 0)// handle case where the heap has one element - no rotation required
+	if (result != 0)
+		- no rotation required
 		ft_printf("\nTest 2 failed: expected 0, got: %d\n", result);
-
 	ft_heapadd(2, &heap);
 	result = ft_nb_at_head(2, heap);
 	if (result != -1)
 		ft_printf("\nTest 3 failed: expected -1, got: %d\n", result);
-
 	ft_heapadd(3, &heap);
 	result = ft_nb_at_head(3, heap);
 	if (result != -1)
 		ft_printf("\nTest 4 failed: expected -1, got: %d\n", result);
-
 	ft_heapadd(4, &heap);
 	result = ft_nb_at_head(4, heap);
 	if (result != -1)
 		ft_printf("\nTest 5 failed: expected -1, got: %d\n", result);
-
 	ft_heapadd(5, &heap);
 	result = ft_nb_at_head(4, heap);
 	if (result != -2)
@@ -80,7 +76,7 @@ void	test_ft_get_b_rot(void)
 	t_heap	*a;
 	int		b_rot;
 
-	ft_printf("\n---------------------Testing ft_get_b_rot---------------------\n");
+	ft_printf("\n--------Testing ft_get_b_rot--------\n");
 	b = 0;
 	b_rot = ft_get_b_rot(3, b);
 	if (b_rot != 0)

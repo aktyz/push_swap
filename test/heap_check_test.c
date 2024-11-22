@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:33:51 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 14:10:42 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:30:38 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	test_ft_is_sorted(void)
 {
 	t_heap	*a;
 	int		result;
-	ft_printf("\n---------------------Testing ft_is_sorted---------------------\n");
+
+	ft_printf("\n--------Testing ft_is_sorted--------\n");
 	a = 0;
 	result = ft_is_sorted(a);
 	if (result != 1)

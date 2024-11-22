@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:48:22 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 18:48:22 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:27:12 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ t_atof	*ft_atof(const char *str)
 	result->number = 0;
 	result->error = '\0';
 	ft_printf("\nstr: %s\n", str);
-	printf("\n\nresult.number = %ld\t\t result.error = %d\n\n", result->number, result->error);
+	printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
+		result->number, result->error);
 	if (str[i] == 43 && str[i + 1] != 45)
 		i++;
 	if (str[i] == 45)
@@ -51,13 +52,14 @@ t_atof	*ft_atof(const char *str)
 		i++;
 	}
 	result->number = result->number * is_negative;
-	printf("\n\nresult.number = %ld\t\t result.error = %d\n\n", result->number, result->error);
+	printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
+		result->number, result->error);
 	return (result);
 }
 
 static void	ft_check_overflow(t_atof **result, char next)
 {
-	if ((*result)->number > 2147483648/10 ||
-		((*result)->number == 2147483647/10 && next - 48 > 7))
-			(*result)->error = OVERFLOW;
+	if ((*result)->number > 2147483648 / 10
+		|| ((*result)->number == 2147483647 / 10 && next - 48 > 7))
+		(*result)->error = OVERFLOW;
 }

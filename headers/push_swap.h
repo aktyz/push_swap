@@ -6,14 +6,14 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 19:31:19 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:11:23 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct s_heap
 {
@@ -21,7 +21,7 @@ typedef struct s_heap
 	int				push_b_cost;
 	int				distance_from_head;
 	struct s_heap	*next;
-} t_heap;
+}	t_heap;
 
 typedef enum e_push_swap_error
 {

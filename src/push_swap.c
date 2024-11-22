@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:38:55 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:25:19 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //static void	ft_get_min_at_head(**heap);
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_heap	*stack_a;
 	int		rot;
@@ -22,14 +22,14 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		write(1, "Error - to little/many arguments\n", 33);
-		return (0); // switch to error message
+		return (0);
 	}
 	else
-	stack_a = parse_arg(argv[1]);
+		stack_a = parse_arg(argv[1]);
 	if (!stack_a)
 	{
 		write(1, "Error - duplicated integers\n", 28);
-		return (0); // switch to error message
+		return (0);
 	}
 	ft_push_swap(stack_a);
 	rot = ft_nb_at_head(ft_get_min(stack_a), stack_a);

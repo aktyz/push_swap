@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:10:00 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 19:10:00 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:35:04 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void	test_ft_atof(void)
 {
 	t_atof	*result;
 
-	ft_printf("\n---------------------Testing ft_atof---------------------\n");
+	ft_printf("\n--------Testing ft_atof--------\n");
 	result = ft_atof("-2147483648");
-	ft_printf("\n\nresult.number = %f\t\t result.error = %s\n\n", result->number, result->error);
+	ft_printf("\n\nresult.number = %f\t\t result.error = %s\n\n",
+		result->number, result->error);
 	if (result->number == -2147483648 && !result->error)
 		ft_printf("\nTest 0 passed\n");
 	else

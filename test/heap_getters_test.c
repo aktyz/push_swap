@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:57:42 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 14:36:12 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:32:40 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	test_ft_get_size(void)
 	int		size;
 	int		i;
 
-	ft_printf("\n---------------------Testing ft_get_size---------------------\n");
+	ft_printf("\n--------Testing ft_get_size--------\n");
 	heap = ft_heapnew(33);
 	size = ft_get_size(heap);
 	if (size != 1)
@@ -49,7 +49,7 @@ void	test_ft_get_nb_pos(void)
 	t_heap	*heap;
 	int		result;
 
-	ft_printf("\n---------------------Testing ft_get_nb_pos---------------------\n");
+	ft_printf("\n--------Testing ft_get_nb_pos--------\n");
 	heap = 0;
 	heap = ft_heapnew(1);
 	ft_heapadd(2, &heap);

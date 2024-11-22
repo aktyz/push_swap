@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:44:35 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:24:10 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_heap	*parse_arg(char *string)
 	t_heap	*stack;
 	char	**str_array;
 	int		number;
-	int 	i;
+	int		i;
 
 	i = 0;
 	str_array = ft_split(string, ' ');
@@ -31,7 +31,7 @@ t_heap	*parse_arg(char *string)
 	stack = ft_heapnew(number);
 	str_array++;
 	i++;
-	while(*str_array)
+	while (*str_array)
 	{
 		number = ft_atoi(*str_array);
 		if (ft_is_dup(stack, number) == DUPLICATION_ERROR)
@@ -57,33 +57,33 @@ void	ft_push_swap(t_heap *heap)
 	if (size >= 0 && size <= 1)
 		return ;
 	if (size == 2)
-		{
-			if(!ft_is_sorted(heap))
-				swap_a(&heap);
-		}
+	{
+		if (!ft_is_sorted(heap))
+			swap_a(&heap);
+	}
 	else if (size == 3)
 		ft_sort_three(&heap);
 	else
+	{
+		push_b(&heap, &b);
+		if (ft_get_size(heap) == 3)
 		{
-			push_b(&heap, &b);
-			if (ft_get_size(heap) == 3)
-			{
-				ft_sort_three(&heap);
-				while (ft_get_size(b))
-					ft_push_a_sorted(&heap, &b);
-				return ;
-			}
-			push_b(&heap, &b);
-			while(ft_get_size(heap) > 3)
-			{
-				tmp = ft_get_lowest_cost_node(heap, b);
-				ft_rot_ab(tmp, &heap, &b);
-				push_b(&heap, &b);
-			}
 			ft_sort_three(&heap);
 			while (ft_get_size(b))
 				ft_push_a_sorted(&heap, &b);
+			return ;
 		}
+		push_b(&heap, &b);
+		while (ft_get_size(heap) > 3)
+		{
+			tmp = ft_get_lowest_cost_node(heap, b);
+			ft_rot_ab(tmp, &heap, &b);
+			push_b(&heap, &b);
+		}
+		ft_sort_three(&heap);
+		while (ft_get_size(b))
+			ft_push_a_sorted(&heap, &b);
+	}
 }
 
 /**
@@ -93,31 +93,30 @@ void	ft_push_swap(t_heap *heap)
  */
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 {
-	int		a_rot;
-	int		b_rot;
-	int		min;
+	int	a_rot;
+	int	b_rot;
+	int	min;
 
 	a_rot = tmp->distance_from_head;
 	b_rot = ft_get_b_rot(tmp->number, *b);
 	if (a_rot * b_rot > 0)
 	{
 		min = ft_min(ft_absolute(a_rot), ft_absolute(b_rot));
-
-		while(min--)
+		while (min--)
 		{
-			if(a_rot > 0)
+			if (a_rot > 0)
 			{
 				rotate_ab(heap, b);
 				a_rot--;
 				b_rot--;
 			}
-			else if(a_rot < 0)
+			else if (a_rot < 0)
 			{
 				reverse_rotate_ab(heap, b);
 				a_rot++;
 				b_rot++;
 			}
-		} // one of (a_rot, b_rot) should be zero; TODO: check on DEBUGGER
+		}
 		if (a_rot != 0)
 		{
 			if (a_rot > 0)

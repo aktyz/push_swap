@@ -55,7 +55,7 @@ void	rotate_ab(t_heap **a, t_heap **b)
 
 	ra = rotate(a);
 	rb = rotate(b);
-	if(ra && rb)
+	if (ra && rb)
 		ft_printf("rr\n");
 	else if (ra)
 		ft_printf("ra\n");

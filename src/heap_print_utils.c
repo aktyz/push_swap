@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:02:26 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/11 19:30:11 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:26:32 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_print_heap_node(t_heap *node)
 
 void	ft_print_heap(t_heap *heap)
 {
-	while(heap)
+	while (heap)
 	{
 		ft_print_heap_node(heap);
 		heap = heap->next;
@@ -35,7 +35,9 @@ void	ft_print_heap(t_heap *heap)
 
 void	ft_print_heap_size(t_heap *heap)
 {
-	int i = ft_get_size(heap);
+	int	i;
+
+	i = ft_get_size(heap);
 	ft_printf("The size of my heap is: %d\n", i);
 }
 

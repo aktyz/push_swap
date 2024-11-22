@@ -25,7 +25,7 @@ int	swap(t_heap **a)
 {
 	int	tmp_nb;
 
-	if(!*a || ft_get_size(*a) == 1)
+	if (!*a || ft_get_size(*a) == 1)
 		return (0);
 	tmp_nb = (*a)->next->number;
 	(*a)->next->number = (*a)->number;
@@ -52,7 +52,7 @@ void	swap_ab(t_heap **a, t_heap **b)
 
 	ra = swap(a);
 	rb = swap(b);
-	if(ra && rb)
+	if (ra && rb)
 		ft_printf("ss\n");
 	else if (ra)
 		ft_printf("sa\n");

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:36:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/13 14:08:58 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:34:40 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	test_push_b(void);
 
 void	test_push_b(void)
 {
-	t_heap *a;
-	t_heap *b;
+	t_heap	*a;
+	t_heap	*b;
 
 	a = 0;
 	b = 0;
-	ft_printf("\n---------------------Testing push_b---------------------\n");
+	ft_printf("\n--------Testing push_b--------\n");
 	a = ft_heapnew(7);
 	ft_heapadd(33, &a);
 	ft_printf("\n\nStack A before changes:\n");
@@ -36,7 +36,7 @@ void	test_push_b(void)
 	ft_printf("\nAfter push_b to exisiting B two stacks are:\n");
 	ft_print_ab(a, b);
 	push_b(&a, &b);
-	ft_printf("\nAfter push_b of last element of A to exisiting B two stacks are:\n");
+	ft_printf("\nAfter push_b from A to exisiting B two stacks are:\n");
 	ft_print_ab(a, b);
 	ft_print_heap_size(a);
 	push_b(&a, &b);

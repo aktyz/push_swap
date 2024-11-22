@@ -17,7 +17,8 @@ void	test_swap(void);
 void	test_swap(void)
 {
 	t_heap	*a;
-	ft_printf("\n---------------------Testing swap---------------------\n");
+
+	ft_printf("\n--------Testing swap--------\n");
 	a = 0;
 	swap_a(&a);
 	a = ft_heapnew(33);

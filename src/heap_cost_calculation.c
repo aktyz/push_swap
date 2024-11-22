@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/15 16:35:32 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:21:06 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_heap	*ft_get_lowest_cost_node(t_heap *a, t_heap *b)
 	}
 	return (head);
 }
+
 /**
  * This function returns the cost of pushing node holding nb value
  * from heap a to the head of heap b.
@@ -112,7 +113,7 @@ int	ft_get_b_rot(int nb, t_heap *b)
 	while (is_new_head)
 	{
 		if (prev_nb > nb && is_new_head->number < nb)
-			break;
+			break ;
 		prev_nb = is_new_head->number;
 		is_new_head = is_new_head->next;
 	}
@@ -136,7 +137,7 @@ int	ft_get_b_rot(int nb, t_heap *b)
  * Developed by modifying ft_get_b_rot().
  *
 */
-int		ft_get_a_rot(int nb, t_heap *a)
+int	ft_get_a_rot(int nb, t_heap *a)
 {
 	t_heap	*is_new_head;
 	int		prev_nb;
@@ -150,12 +151,13 @@ int		ft_get_a_rot(int nb, t_heap *a)
 	while (is_new_head)
 	{
 		if (prev_nb < nb && is_new_head->number > nb)
-			break;
+			break ;
 		prev_nb = is_new_head->number;
 		is_new_head = is_new_head->next;
 	}
 	return (ft_nb_at_head(is_new_head->number, a));
 }
+
 /**
  * Function returning number representing the rotation of the heap,
  * that will result nb being at the head of it.
@@ -166,14 +168,14 @@ int		ft_get_a_rot(int nb, t_heap *a)
 */
 int	ft_nb_at_head(int nb, t_heap *heap)
 {
-	int nb_pos;
+	int	nb_pos;
 	int	a_size;
 
 	a_size = ft_get_size(heap);
 	if (a_size < 2)
 		return (0);
 	nb_pos = ft_get_nb_pos(nb, heap) + 1;
-	if (nb_pos < (a_size/2 + 1))
+	if (nb_pos < (a_size / 2 + 1))
 		return (nb_pos - 1);
 	else
 		return ((a_size - nb_pos + 1) * -1);
