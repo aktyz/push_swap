@@ -42,7 +42,6 @@ fclean: clean
 	@cd ./libft && $(MAKE) fclean
 	@rm -f $(NAME)
 	@rm -fr $(OBJ_DIR)
-	@rm -f test.out
 	@rm ./libft.a
 	@rm ./headers/libft.h
 	@rm ./run_test

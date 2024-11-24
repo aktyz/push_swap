@@ -22,7 +22,8 @@ int	main(int argc, char *argv[])
 	{
 		write(1, "Error - to little/many arguments\n", 33);
 		return (0);
-		else
+	}
+	else
 		{
 			ft_printf("\nBefore parsing\n");
 			a = parse_arg(argv[1]);
@@ -57,5 +58,4 @@ int	main(int argc, char *argv[])
 		test_ft_atof();
 		ft_printf("\nUNIT TESTS COMPLETED\n");
 		return (0);
-	}
 }

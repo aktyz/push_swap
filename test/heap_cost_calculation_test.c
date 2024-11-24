@@ -28,7 +28,6 @@ void	test_ft_nb_at_head(void)
 	heap = ft_heapnew(1);
 	result = ft_nb_at_head(1, heap);
 	if (result != 0)
-		- no rotation required
 		ft_printf("\nTest 2 failed: expected 0, got: %d\n", result);
 	ft_heapadd(2, &heap);
 	result = ft_nb_at_head(2, heap);
