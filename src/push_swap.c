@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/25 16:32:18 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:42:47 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
+/**
+ * Function parsing integers from a list of program arguments.
+ *
+ */
 static void	parse_args(t_heap **heap, char **argv)
 {
 	int	i;

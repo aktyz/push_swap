@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/25 16:27:45 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:45:04 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	ft_push_swap(t_heap *heap)
  * This function modifies both heap and heap b:
  * - tmp node is moved to the head of heap
  * - b is rotated so that we end up with node->number > tmp->nb at the head
+ *
  */
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 {

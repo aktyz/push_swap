@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:33:16 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:21:06 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:40:55 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_heap	*ft_get_lowest_cost_node(t_heap *a, t_heap *b)
  *
  * It returns a positive value of the cost, no matter which direction
  * we need to turn a and b.
+ *
  */
 int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
 {
@@ -72,13 +73,13 @@ int	ft_node_cost_calculation(int nb, t_heap *a, t_heap *b)
 	{
 		a_rotation = ft_absolute(a_rotation);
 		b_rotation = ft_absolute(b_rotation);
-		return (ft_max(a_rotation, b_rotation));
+		return (ft_max(a_rotation, b_rotation) + 1);
 	}
 	else
 	{
 		a_rotation = ft_absolute(a_rotation);
 		b_rotation = ft_absolute(b_rotation);
-		return (a_rotation + b_rotation);
+		return (a_rotation + b_rotation + 1);
 	}
 }
 
@@ -170,6 +171,7 @@ int	ft_nb_at_head(int nb, t_heap *heap)
 {
 	int	nb_pos;
 	int	a_size;
+	int	i;
 
 	a_size = ft_get_size(heap);
 	if (a_size < 2)
@@ -178,5 +180,13 @@ int	ft_nb_at_head(int nb, t_heap *heap)
 	if (nb_pos < (a_size / 2 + 1))
 		return (nb_pos - 1);
 	else
-		return ((a_size - nb_pos + 1) * -1);
+	{
+		i = (a_size - nb_pos + 1) * -1;
+		if (a_size == 2 && i == -1)
+			return (1);
+		else if (a_size == 3 && i == -2)
+			return (1);
+		else
+			return (i);
+	}
 }

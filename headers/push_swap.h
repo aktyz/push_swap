@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/25 15:55:08 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:56:06 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void	test_ft_sort_three(void);
 void	test_ft_nb_at_head(void);
 void	test_ft_get_b_rot(void);
 void	test_ft_atof(void);
+void	test_ft_node_cost_calculation(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:33:08 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:31:57 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:55:32 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	test_ft_nb_at_head(void)
 		ft_printf("\nTest 2 failed: expected 0, got: %d\n", result);
 	ft_heapadd(2, &heap);
 	result = ft_nb_at_head(2, heap);
-	if (result != -1)
-		ft_printf("\nTest 3 failed: expected -1, got: %d\n", result);
+	if (result != 1)
+		ft_printf("\nTest 3 failed: expected 1, got: %d\n", result);
 	ft_heapadd(3, &heap);
 	result = ft_nb_at_head(3, heap);
 	if (result != -1)
@@ -110,4 +110,54 @@ void	test_ft_get_b_rot(void)
 		ft_printf("Test case 3 failed: expected 1, got %d\n", b_rot);
 	else
 		ft_printf("\n\n");
+	ft_destroyheap(&a);
+	ft_destroyheap(&b);
+}
+
+void	test_ft_node_cost_calculation(void)
+{
+	t_heap	*a;
+	t_heap	*b;
+	int		result;
+
+	a = ft_heapnew(7);
+	ft_heapadd(1, &a);
+	ft_heapadd(6, &a);
+	b = 0;
+	ft_printf("\n--------Testing ft_node_cost_calculation--------\n");
+	result = ft_node_cost_calculation(6, a, b);
+	if (result != 2)
+		ft_printf("Test case 0 failed, received: %d when expecting 2\n",
+			result);
+	ft_heapadd(3, &a);
+	ft_heapadd(9, &a);
+	ft_heapadd(4, &a);
+	ft_heapadd(8, &a);
+	b = ft_heapnew(2);
+	ft_heapadd(5, &b);
+	result = ft_node_cost_calculation(7, a, b);
+	if (result != 2)
+		ft_printf("Test case 1 failed, received: %d when expecting 2\n",
+			result);
+	result = ft_node_cost_calculation(6, a, b);
+	if (result != 3)
+		ft_printf("Test case 2 failed, received: %d when expecting 3\n",
+			result);
+	rotate_b(&b);
+	push_b(&a, &b);
+	result = ft_node_cost_calculation(1, a, b);
+	if (result != 1)
+		ft_printf("Test case 3 failed, received: %d when expecting 1\n",
+			result);
+	result = ft_node_cost_calculation(6, a, b);
+	if (result != 2)
+		ft_printf("Test case 4 failed, received: %d when expecting 2\n",
+			result);
+	push_b(&a, &b);
+	result = ft_node_cost_calculation(6, a, b);
+	if (result != 3)
+		ft_printf("Test case 5 failed, received: %d when expecting 3\n",
+			result);
+	ft_destroyheap(&a);
+	ft_destroyheap(&b);
 }
