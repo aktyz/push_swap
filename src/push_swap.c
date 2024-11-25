@@ -6,13 +6,13 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:25:19 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:40:04 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//static void	ft_get_min_at_head(**heap);
+static void	ft_finish_sorting(t_heap **heap);
 
 int	main(int argc, char *argv[])
 {
@@ -32,34 +32,29 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	ft_push_swap(stack_a);
-	rot = ft_nb_at_head(ft_get_min(stack_a), stack_a);
-	if (rot > 0)
-	{
-		while (rot--)
-			rotate_a(&stack_a);
-	}
-	if (rot < 0)
-	{
-		while (rot++)
-			reverse_rotate_a(&stack_a);
-	}
+	ft_finish_sorting(&stack_a);
 	ft_destroyheap(&stack_a);
 	return (0);
 }
 
-/*static void	ft_get_min_at_head(**heap)
+/**
+ * Function makes sure that the heap min number is at 
+ * it's head.
+ * 
+ */
+static void	ft_finish_sorting(t_heap **heap)
 {
 	int	rot;
 
-	rot = ft_nb_at_head(ft_get_min(*heap), &heap);
+	rot = ft_nb_at_head(ft_get_min(heap), heap);
 	if (rot > 0)
 	{
 		while (rot--)
-			rotate_a(heap);
+			rotate_a(&heap);
 	}
 	if (rot < 0)
 	{
 		while (rot++)
-			reverse_rotate_a(heap);
+			reverse_rotate_a(&heap);
 	}
-}*/
+}
