@@ -40,6 +40,7 @@ TODO =><br>
 - [ ] check how arguments should be passed to your main: string or many argv<br>
 - [ ] run Valgrind check
 - [ ] REMOVE wildcards from Makefiles<br>
+- [ ] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
 - [x] split heap_utils.c into separate files depending on function<br>
 - [x] correct ft_nb_at_head() to account for the direction of the rotation<br>
 - [x] correct return from ft_node_cost_calculation - depeinding on the combination of positive negative a & b rotations<br>

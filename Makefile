@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/11/21 17:08:56 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/25 16:29:38 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ fclean: clean
 	@cd ./libft && $(MAKE) fclean
 	@rm -f $(NAME)
 	@rm -fr $(OBJ_DIR)
+	@rm -fr ./libft
 	@rm ./libft.a
 	@rm ./headers/libft.h
 	@rm ./run_test

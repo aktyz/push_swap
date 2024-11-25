@@ -6,19 +6,26 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:24:10 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:27:45 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_heap	*parse_arg(char *string);
+t_heap	*parse_string_arg(char *string);
 void	ft_push_swap(t_heap *heap);
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
 void	ft_push_a_sorted(t_heap **heap, t_heap **b);
 
-t_heap	*parse_arg(char *string)
+/**
+ * Function takes string given as program argument and
+ * divided it into itegers. Funciton checks agains:
+ * - [x] duplication error
+ * - [ ] not a number error
+ * - [ ] MAXINT overrun
+ */
+t_heap	*parse_string_arg(char *string)
 {
 	t_heap	*stack;
 	char	**str_array;
@@ -37,7 +44,8 @@ t_heap	*parse_arg(char *string)
 		if (ft_is_dup(stack, number) == DUPLICATION_ERROR)
 		{
 			ft_destroyheap(&stack);
-			return (stack);
+			write(1, "Error\n", 6);
+			exit(EXIT_FAILURE);
 		}
 		else
 			ft_heapadd(number, &stack);
@@ -47,6 +55,11 @@ t_heap	*parse_arg(char *string)
 	return (stack);
 }
 
+/**
+ * Function taking the parsed heap and sorting it according
+ * to Turk algorithm.
+ * 
+ */
 void	ft_push_swap(t_heap *heap)
 {
 	int		size;
@@ -175,6 +188,10 @@ void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 	}
 }
 
+/**
+ * Function sorting the heap if it has only three arguments
+ *
+ */
 void	ft_sort_three(t_heap **heap)
 {
 	if (!ft_is_sorted(*heap))

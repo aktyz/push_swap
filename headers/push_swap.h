@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/21 17:11:23 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:55:08 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <stdlib.h>
 
 typedef struct s_heap
 {
@@ -36,7 +37,7 @@ typedef struct s_atof
 }	t_atof;
 
 // PROGRAM functions
-t_heap	*parse_arg(char *string);
+t_heap	*parse_string_arg(char *string);
 t_atof	*ft_atof(const char *str);
 void	ft_push_swap(t_heap *heap);
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
