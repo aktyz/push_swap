@@ -37,23 +37,23 @@ int	main(int argc, char *argv[])
  */
 static void	parse_args(t_heap **heap, char **argv)
 {
-	int	i;
-	int	number;
+	int		i;
+	t_atof	*number;
 
-	number = ft_atoi(argv[1]);
-	*heap = ft_heapnew(number);
+	number = ft_atof(argv[1]);
+	*heap = ft_heapnew(number->number);
 	i = 2;
 	while (argv[i])
 	{
-		number = ft_atoi(argv[i]);
-		if (ft_is_dup(*heap, number) == DUPLICATION_ERROR)
+		number = ft_atof(argv[i]);
+		if (ft_is_dup(*heap, number->number) == DUPLICATION_ERROR)
 		{
 			ft_destroyheap(heap);
 			write(1, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
 		else
-			ft_heapadd(number, heap);
+			ft_heapadd(number->number, heap);
 		i++;
 	}
 }
