@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
 
 static void	ft_check_overflow(t_atof **result, char next);
 
@@ -34,9 +33,9 @@ t_atof	*ft_atof(const char *str)
 	result = (t_atof *) malloc(sizeof(t_atof));
 	result->number = 0;
 	result->error = '\0';
-	ft_printf("\nstr: %s\n", str);
-	printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
-		result->number, result->error);
+	//ft_printf("\nstr: %s\n", str);
+	//printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
+		//result->number, result->error);
 	if (str[i] == 43 && str[i + 1] != 45)
 		i++;
 	if (str[i] == 45)
@@ -44,7 +43,7 @@ t_atof	*ft_atof(const char *str)
 		is_negative = -1;
 		i++;
 	}
-	printf("\nis_negative: %d", is_negative);
+	//printf("\nis_negative: %d", is_negative);
 	while (ft_isdigit(str[i]) && !result->error)
 	{
 		ft_check_overflow(&result, str[i]);
@@ -52,8 +51,8 @@ t_atof	*ft_atof(const char *str)
 		i++;
 	}
 	result->number = result->number * is_negative;
-	printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
-		result->number, result->error);
+	//printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
+		//result->number, result->error);
 	return (result);
 }
 

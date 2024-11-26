@@ -73,6 +73,7 @@ void	push_a(t_heap **a, t_heap **b)
 		return ;
 	temp = *b;
 	*b = temp->next;
+	temp->next = NULL;
 	if (ft_get_size(*a) == 0)
 		*a = ft_heapnew(temp->number);
 	else
@@ -96,6 +97,7 @@ void	push_b(t_heap **a, t_heap **b)
 		return ;
 	temp = *a;
 	*a = temp->next;
+	temp->next = NULL;
 	if (ft_get_size(*b) == 0)
 		*b = ft_heapnew(temp->number);
 	else

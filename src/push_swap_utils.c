@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 t_heap	*parse_string_arg(char *string);
-void	ft_push_swap(t_heap *heap);
+void	ft_push_swap(t_heap **heap);
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
 void	ft_push_a_sorted(t_heap **heap, t_heap **b);
@@ -27,30 +27,27 @@ void	ft_push_a_sorted(t_heap **heap, t_heap **b);
  */
 t_heap	*parse_string_arg(char *string)
 {
-	t_heap	*stack;
-	char	**str_array;
-	int		number;
-	int		i;
+	t_heap		*stack;
+	char		**str_array;
+	t_atof		*number;
 
-	i = 0;
 	str_array = ft_split(string, ' ');
-	number = ft_atoi(*str_array);
-	stack = ft_heapnew(number);
+	number = ft_atof(*str_array);
+	if (!number->error)
+		stack = ft_heapnew(number->number);
 	str_array++;
-	i++;
 	while (*str_array)
 	{
-		number = ft_atoi(*str_array);
-		if (ft_is_dup(stack, number) == DUPLICATION_ERROR)
+		number = ft_atof(*str_array);
+		if (!number->error && ft_is_dup(stack, number->number) == DUPLICATION_ERROR)
 		{
 			ft_destroyheap(&stack);
 			write(1, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
 		else
-			ft_heapadd(number, &stack);
+			ft_heapadd(number->number, &stack);
 		str_array++;
-		i++;
 	}
 	return (stack);
 }
@@ -58,44 +55,38 @@ t_heap	*parse_string_arg(char *string)
 /**
  * Function taking the parsed heap and sorting it according
  * to Turk algorithm.
- * 
+ *
  */
-void	ft_push_swap(t_heap *heap)
+void	ft_push_swap(t_heap **heap)
 {
 	int		size;
 	t_heap	*tmp;
 	t_heap	*b;
 
-	size = ft_get_size(heap);
+	size = ft_get_size(*heap);
+	b = NULL;
+	tmp = NULL;
 	if (size >= 0 && size <= 1)
 		return ;
 	if (size == 2)
 	{
-		if (!ft_is_sorted(heap))
-			swap_a(&heap);
+		if (!ft_is_sorted(*heap))
+			swap_a(heap);
 	}
 	else if (size == 3)
-		ft_sort_three(&heap);
-	else
+		ft_sort_three(heap);
+	else if (!ft_is_sorted(*heap))
 	{
-		push_b(&heap, &b);
-		if (ft_get_size(heap) == 3)
+		push_b(heap, &b);
+		while (size > 3)
 		{
-			ft_sort_three(&heap);
-			while (ft_get_size(b))
-				ft_push_a_sorted(&heap, &b);
-			return ;
+			tmp = ft_get_lowest_cost_node(*heap, b);
+			ft_rot_ab(tmp, heap, &b);
+			push_b(heap, &b);
+			size = ft_get_size(*heap);
 		}
-		push_b(&heap, &b);
-		while (ft_get_size(heap) > 3)
-		{
-			tmp = ft_get_lowest_cost_node(heap, b);
-			ft_rot_ab(tmp, &heap, &b);
-			push_b(&heap, &b);
-		}
-		ft_sort_three(&heap);
-		while (ft_get_size(b))
-			ft_push_a_sorted(&heap, &b);
+		ft_sort_three(heap);
+		ft_push_a_sorted(heap, &b);
 	}
 }
 
@@ -217,6 +208,7 @@ void	ft_push_a_sorted(t_heap **heap, t_heap **b)
 		{
 			while (a_rot--)
 				rotate_a(heap);
+			a_rot = 0;
 		}
 		if (a_rot < 0)
 		{

@@ -39,7 +39,7 @@ typedef struct s_atof
 // PROGRAM functions
 t_heap	*parse_string_arg(char *string);
 t_atof	*ft_atof(const char *str);
-void	ft_push_swap(t_heap *heap);
+void	ft_push_swap(t_heap **heap);
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
 void	ft_push_a_sorted(t_heap **heap, t_heap **b);

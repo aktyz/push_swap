@@ -25,7 +25,7 @@ int	main(int argc, char *argv[])
 		parse_args(&stack_a, argv);
 	else
 		exit(EXIT_FAILURE);
-	ft_push_swap(stack_a);
+	ft_push_swap(&stack_a);
 	ft_finish_sorting(&stack_a);
 	ft_destroyheap(&stack_a);
 	return (0);
@@ -59,9 +59,9 @@ static void	parse_args(t_heap **heap, char **argv)
 }
 
 /**
- * Function makes sure that the heap min number is at 
+ * Function makes sure that the heap min number is at
  * it's head.
- * 
+ *
  */
 static void	ft_finish_sorting(t_heap **heap)
 {
