@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/25 17:45:04 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:20:26 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_heap	*parse_string_arg(char *string)
 	if (!number->error)
 		stack = ft_heapnew(number->number);
 	str_array++;
+	free(number);
 	while (*str_array)
 	{
 		number = ft_atof(*str_array);
@@ -48,7 +49,9 @@ t_heap	*parse_string_arg(char *string)
 		else
 			ft_heapadd(number->number, &stack);
 		str_array++;
+		free(number);
 	}
+	ft_clear_char_array(&str_array);
 	return (stack);
 }
 

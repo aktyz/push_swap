@@ -23,7 +23,7 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-> PICK-UP: When running the ./run_debug I am getting segmentation fault, however the ./push_swap seems to work fine on three numbers :P
+> PICK-UP: Running Valgrind checks then the solution is too long for 100 and 500 numbers :(
 
 DONE => implement Turk algorithm<br>
 - [x] ft_get_lowest_cost_node(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
@@ -37,15 +37,18 @@ TODO =><br>
 > - [ ] errors check: some arguments aren’t integers<br>
 > - [ ] errors check: some arguments are bigger than an integer<br>
 - [ ] norminette!!!!<br>
-- [ ] check how arguments should be passed to your main: string or many argv<br>
+- [x] check how arguments should be passed to your main: string or many argv<br>
 - [ ] run Valgrind check
 - [ ] REMOVE wildcards from Makefiles<br>
-- [ ] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
 - [x] split heap_utils.c into separate files depending on function<br>
 - [x] correct ft_nb_at_head() to account for the direction of the rotation<br>
 - [x] correct return from ft_node_cost_calculation - depeinding on the combination of positive negative a & b rotations<br>
 - [x] remove unusued "initial index of the node"<br>
 - [x] revrite ft_heap_new(**heap) & ft_heap_add(**heap)<br><br>
+
+OUTOFSCOPE for Eval:
+- [ ] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
+- [ ] refactor heap utils - creation of the list uses heapadd()
 
 # Difficult norm remaining
 ```

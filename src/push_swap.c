@@ -43,6 +43,7 @@ static void	parse_args(t_heap **heap, char **argv)
 	number = ft_atof(argv[1]);
 	*heap = ft_heapnew(number->number);
 	i = 2;
+	free(number);
 	while (argv[i])
 	{
 		number = ft_atof(argv[i]);
@@ -55,6 +56,7 @@ static void	parse_args(t_heap **heap, char **argv)
 		else
 			ft_heapadd(number->number, heap);
 		i++;
+		free(number);
 	}
 }
 
