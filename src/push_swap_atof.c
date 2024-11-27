@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:48:22 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 14:04:11 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:32:22 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ t_atof	*ft_atof(const char *str)
 	result = (t_atof *) malloc(sizeof(t_atof));
 	result->number = 0;
 	result->error = 0;
-	//ft_printf("\nstr: %s\n", str);
-	//printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
-		//result->number, result->error);
 	if (str[i] == 43 && str[i + 1] != 45)
 		i++;
 	if (str[i] == 45)
@@ -43,16 +40,15 @@ t_atof	*ft_atof(const char *str)
 		is_negative = -1;
 		i++;
 	}
-	//printf("\nis_negative: %d", is_negative);
-	while (ft_isdigit(str[i]) && !result->error)
+	while (!result->error)
 	{
+		if (!ft_isdigit(str[i]))
+			result->error = NOT_A_NUMBER;
 		ft_check_overflow(&result, str[i]);
 		result->number = (result->number * 10) + (str[i] - 48);
 		i++;
 	}
 	result->number = result->number * is_negative;
-	//printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
-		//result->number, result->error);
 	return (result);
 }
 

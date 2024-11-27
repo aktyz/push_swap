@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 15:01:54 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:36:22 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,19 @@ static void	parse_args(t_heap **heap, char **argv)
 	while (argv[i])
 	{
 		number = ft_atof(argv[i]);
-		if (ft_is_dup(*heap, number->number) == DUPLICATION_ERROR)
+		if (!*heap && !number->error)
+			ft_heapadd(number->number, heap);
+		else if (!(number->error) && !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
+			ft_heapadd(number->number, heap);
+		else
 		{
-			ft_destroyheap(heap);
+			if (heap)
+				ft_destroyheap(heap);
 			if (number)
 				free(number);
 			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
-		else
-			ft_heapadd(number->number, heap);
 		i++;
 		if (number)
 			free(number);

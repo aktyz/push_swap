@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 13:50:05 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:31:22 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef enum e_push_swap_error
 {
 	DUPLICATION_ERROR = -33,
 	OVERFLOW = 77,
+	NOT_A_NUMBER = 87,
 }	t_push_swap_error;
 
 typedef struct s_atof

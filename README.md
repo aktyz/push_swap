@@ -23,7 +23,7 @@ DONE => TDD: write tests for parse_arg() function
 
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
-> PICK-UP: Running Valgrind checks then the solution is too long for 100 and 500 numbers :(
+> PICK-UP: the solution is too long for 100 and 500 numbers :(
 
 DONE => implement Turk algorithm<br>
 - [x] ft_get_lowest_cost_node(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
@@ -33,14 +33,16 @@ DONE => implement Turk algorithm<br>
 
 TODO =><br>
 
-- [x] run Valgrind check
-- [ ] refactor heap utils - creation of the list uses heapadd() - to remove last leak
 - [ ] norminette!!!!<br>
 - [ ] REMOVE wildcards from Makefiles<br>
+- [ ] the solution is too long for 100 and 500 numbers :(<br>
+- [x] run Valgrind check
+- [x] refactor heap utils - creation of the list uses heapadd() - to remove last leak
+> - [x] errors check: some arguments are bigger than an integer<br>
+> - [x] errors check: some arguments are not numbers<br>
+- [x] remove the last leak<br>
 - [x] resolve segmentation fault - most probably in the last developed funcitons (not tested)
-> - [ ] errors check: some arguments aren’t integers<br>
-> - [ ] errors check: some arguments are bigger than an integer<br>
-> - [ ] errors check: some arguments are not numbers<br>
+
 
 - [x] check how arguments should be passed to your main: string or many argv<br>
 - [x] split heap_utils.c into separate files depending on function<br>

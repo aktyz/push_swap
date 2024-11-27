@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 15:02:01 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:11:21 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	push_a(t_heap **a, t_heap **b)
 	*b = temp->next;
 	temp->next = NULL;
 	if (ft_get_size(*a) == 0)
-		ft_heapadd(temp->number, a);
+		*a = temp;
 	else
 	{
 		temp->next = *a;
@@ -91,7 +91,7 @@ void	push_b(t_heap **a, t_heap **b)
 	*a = temp->next;
 	temp->next = NULL;
 	if (ft_get_size(*b) == 0)
-		ft_heapadd(temp->number, b);
+		*b = temp;
 	else
 	{
 		temp->next = *b;
