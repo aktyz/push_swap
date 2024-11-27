@@ -33,13 +33,16 @@ DONE => implement Turk algorithm<br>
 
 TODO =><br>
 
-- [ ] resolve segmentation fault - most probably in the last developed funcitons (not tested)
+- [x] run Valgrind check
+- [ ] refactor heap utils - creation of the list uses heapadd() - to remove last leak
+- [ ] norminette!!!!<br>
+- [ ] REMOVE wildcards from Makefiles<br>
+- [x] resolve segmentation fault - most probably in the last developed funcitons (not tested)
 > - [ ] errors check: some arguments aren’t integers<br>
 > - [ ] errors check: some arguments are bigger than an integer<br>
-- [ ] norminette!!!!<br>
+> - [ ] errors check: some arguments are not numbers<br>
+
 - [x] check how arguments should be passed to your main: string or many argv<br>
-- [ ] run Valgrind check
-- [ ] REMOVE wildcards from Makefiles<br>
 - [x] split heap_utils.c into separate files depending on function<br>
 - [x] correct ft_nb_at_head() to account for the direction of the rotation<br>
 - [x] correct return from ft_node_cost_calculation - depeinding on the combination of positive negative a & b rotations<br>
@@ -48,7 +51,6 @@ TODO =><br>
 
 OUTOFSCOPE for Eval:
 - [ ] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
-- [ ] refactor heap utils - creation of the list uses heapadd()
 
 # Difficult norm remaining
 ```

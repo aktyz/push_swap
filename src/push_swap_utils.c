@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 09:20:26 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:05:50 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ t_heap	*parse_string_arg(char *string)
 {
 	t_heap		*stack;
 	char		**str_array;
+	char		**ptr;
 	t_atof		*number;
 
 	str_array = ft_split(string, ' ');
+	ptr = str_array;
 	number = ft_atof(*str_array);
 	if (!number->error)
 		stack = ft_heapnew(number->number);
@@ -51,7 +53,7 @@ t_heap	*parse_string_arg(char *string)
 		str_array++;
 		free(number);
 	}
-	ft_clear_char_array(&str_array);
+	ft_clear_char_array(&ptr);
 	return (stack);
 }
 
