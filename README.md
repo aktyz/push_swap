@@ -26,12 +26,6 @@ DONE => Complete parse_arg() function as per subject requirements, reading from 
 > PICK-UP: the solution is too long for 100 and 500 numbers :(
 	- example of input when my hardcoded sorting for 3 won't work: "67 4 9"
 
-DONE => implement Turk algorithm<br>
-- [x] ft_get_lowest_cost_node(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
-- [x] ft_push_b_correct_place(**a, **b); // returning void;<br>
-- [x] ft_push_a_correct_place(**a, **b); // returning void;<br>
-- [x] add unit tests to the cost calculation functions to make sure we get a sorted array in the end<br><br>
-
 TODO =><br>
 
 - [ ] the solution is too long for 100 and 500 numbers :(<br>
@@ -45,8 +39,10 @@ TODO =><br>
 > - [x] errors check: some arguments are not numbers<br>
 - [x] remove the last leak<br>
 - [x] resolve segmentation fault - most probably in the last developed funcitons (not tested)
-
-
+- [x] ft_get_lowest_cost_node(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
+- [x] ft_push_b_correct_place(**a, **b); // returning void;<br>
+- [x] ft_push_a_correct_place(**a, **b); // returning void;<br>
+- [x] add unit tests to the cost calculation functions to make sure we get a sorted array in the end<br><br>
 - [x] check how arguments should be passed to your main: string or many argv<br>
 - [x] split heap_utils.c into separate files depending on function<br>
 - [x] correct ft_nb_at_head() to account for the direction of the rotation<br>
