@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 16:28:59 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:56:15 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	parse_string_arg(t_heap **heap, char *string)
 		number = ft_atof(*str_array);
 		if (!*heap && !number->error)
 			ft_heapadd(number->number, heap);
-		else if (!(number->error) && !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
+		else if (!(number->error)
+			&& !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
 			ft_heapadd(number->number, heap);
 		else
 		{

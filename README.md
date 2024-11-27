@@ -24,6 +24,7 @@ DONE => TDD: write tests for parse_arg() function
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
 > PICK-UP: the solution is too long for 100 and 500 numbers :(
+	- example of input when my hardcoded sorting for 3 won't work: "67 4 9"
 
 DONE => implement Turk algorithm<br>
 - [x] ft_get_lowest_cost_node(*a, *b); // returning a pointer to the node with the lowest operation cost<br>
@@ -33,9 +34,11 @@ DONE => implement Turk algorithm<br>
 
 TODO =><br>
 
-- [ ] norminette!!!!<br>
-- [x] REMOVE wildcards from Makefiles<br>
 - [ ] the solution is too long for 100 and 500 numbers :(<br>
+- [ ] norminette!!!!<br>
+- [ ] Valgrind runs x2<br>
+
+- [x] REMOVE wildcards from Makefiles<br>
 - [x] run Valgrind check
 - [x] refactor heap utils - creation of the list uses heapadd() - to remove last leak
 > - [x] errors check: some arguments are bigger than an integer<br>
@@ -57,12 +60,11 @@ OUTOFSCOPE for Eval:
 # Difficult norm remaining
 ```
 push_swap_utils.c: Error!
-Error: TOO_MANY_LINES       (line:  87, col:   1):	Function has more than 25 lines
-Error: TOO_MANY_LINES       (line: 176, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line:  68, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 106, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 196, col:   1):	Function has more than 25 lines
 push_swap.c: Error!
-Error: TOO_MANY_LINES       (line:  48, col:   1):	Function has more than 25 lines
-push_swap_atof.c: Error!
-Error: TOO_MANY_LINES       (line:  58, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line:  74, col:   1):	Function has more than 25 lines
 
 heap_cost_calculation_test.c: Error!
 Error: TOO_MANY_LINES       (line:  71, col:   1):	Function has more than 25 lines

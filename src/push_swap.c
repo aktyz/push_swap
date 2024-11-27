@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 16:36:16 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:55:33 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	parse_args(t_heap **heap, char **argv);
 static void	ft_finish_sorting(t_heap **heap);
+void		ft_exit_failure(t_heap ***heap, t_atof **number);
 
 int	main(int argc, char *argv[])
 {
@@ -26,6 +27,11 @@ int	main(int argc, char *argv[])
 		parse_args(&stack_a, argv);
 	else
 		exit(EXIT_FAILURE);
+	if (!stack_a)
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
 	ft_push_swap(&stack_a);
 	ft_finish_sorting(&stack_a);
 	ft_destroyheap(&stack_a);
@@ -48,7 +54,8 @@ static void	parse_args(t_heap **heap, char **argv)
 		number = ft_atof(argv[i]);
 		if (!*heap && !number->error)
 			ft_heapadd(number->number, heap);
-		else if (!(number->error) && !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
+		else if (!(number->error)
+			&& !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
 			ft_heapadd(number->number, heap);
 		else
 		{

@@ -6,13 +6,14 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:48:22 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 16:51:10 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:22:51 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	ft_check_overflow(t_atof **result, char next);
+static void	ft_collect_number(t_atof **result, char **str, int *i);
 
 /**
  * Function converting string to float for push_swap project.
@@ -22,7 +23,7 @@ static void	ft_check_overflow(t_atof **result, char next);
  * set to OVERFLOW
  *
  */
-t_atof	*ft_atof(const char *str)
+t_atof	*ft_atof(char *str)
 {
 	int		i;
 	int		is_negative;
@@ -40,14 +41,7 @@ t_atof	*ft_atof(const char *str)
 		is_negative = -1;
 		i++;
 	}
-	while (!result->error && str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			result->error = NOT_A_NUMBER;
-		ft_check_overflow(&result, str[i]);
-		result->number = (result->number * 10) + (str[i] - 48);
-		i++;
-	}
+	ft_collect_number(&result, &str, &i);
 	result->number = result->number * is_negative;
 	return (result);
 }
@@ -57,4 +51,22 @@ static void	ft_check_overflow(t_atof **result, char next)
 	if ((*result)->number > 2147483648 / 10
 		|| ((*result)->number == 2147483647 / 10 && next - 48 > 7))
 		(*result)->error = OVERFLOW;
+}
+
+static void	ft_collect_number(t_atof **result, char **str, int *i)
+{
+	t_atof	*tmp;
+	char	*c;
+
+	tmp = *result;
+	c = *str;
+	while (!(tmp->error) && *c)
+	{
+		if (!ft_isdigit(*c))
+			tmp->error = NOT_A_NUMBER;
+		ft_check_overflow(result, *c);
+		tmp->number = ((tmp->number) * 10) + (*c - 48);
+		(*i)++;
+		c++;
+	}
 }

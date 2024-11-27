@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 16:11:21 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:54:54 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_heapadd(int number, t_heap **heap)
 {
 	t_heap	*new_node;
 	t_heap	*tail;
-	
+
 	new_node = malloc(sizeof(t_heap));
 	new_node->number = number;
 	new_node->push_b_cost = 0;
@@ -36,7 +36,7 @@ void	ft_heapadd(int number, t_heap **heap)
 	{
 		tail = ft_get_tail(*heap);
 		tail->next = new_node;
-	}	
+	}
 }
 
 void	ft_destroyheap(t_heap **heap)
