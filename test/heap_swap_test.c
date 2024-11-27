@@ -19,9 +19,9 @@ void	test_swap(void)
 	t_heap	*a;
 
 	ft_printf("\n--------Testing swap--------\n");
-	a = 0;
+	a = NULL;
 	swap_a(&a);
-	a = ft_heapnew(33);
+	ft_heapadd(33, &a);
 	ft_printf("Heap before swap:\n");
 	ft_print_heap(a);
 	swap_a(&a);

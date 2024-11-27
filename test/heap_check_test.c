@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:33:51 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:30:38 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:02:08 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	test_ft_is_sorted(void)
 	int		result;
 
 	ft_printf("\n--------Testing ft_is_sorted--------\n");
-	a = 0;
+	a = NULL;
 	result = ft_is_sorted(a);
 	if (result != 1)
 		ft_printf("\nMy null list is not sorted, expected 1, got: %d\n",
 			result);
-	a = ft_heapnew(1);
+	ft_heapadd(1, &a);
 	result = ft_is_sorted(a);
 	if (result != 1)
 		ft_printf("\nMy one element list is not sorted, expected 1, got: %d\n",

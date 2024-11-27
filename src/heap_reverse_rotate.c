@@ -33,7 +33,7 @@ int	reverse_rotate(t_heap **heap)
 	tail = ft_get_tail(*heap);
 	while (tmp->next != tail)
 		tmp = tmp->next;
-	tmp->next = 0;
+	tmp->next = NULL;
 	tail->next = *heap;
 	*heap = tail;
 	return (1);

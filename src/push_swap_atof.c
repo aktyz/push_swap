@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:48:22 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:27:12 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:04:11 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_atof	*ft_atof(const char *str)
 	is_negative = 1;
 	result = (t_atof *) malloc(sizeof(t_atof));
 	result->number = 0;
-	result->error = '\0';
+	result->error = 0;
 	//ft_printf("\nstr: %s\n", str);
 	//printf("\n\nresult.number = %ld\t\t result.error = %d\n\n",
 		//result->number, result->error);

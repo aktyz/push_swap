@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/25 17:42:47 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:37:25 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int	main(int argc, char *argv[])
 {
 	t_heap	*stack_a;
 
+	stack_a = NULL;
 	if (argc == 2)
-		stack_a = parse_string_arg(argv[1]);
+		parse_string_arg(&stack_a, argv[1]);
 	else if (argc > 2)
 		parse_args(&stack_a, argv);
 	else
@@ -40,23 +41,22 @@ static void	parse_args(t_heap **heap, char **argv)
 	int		i;
 	t_atof	*number;
 
-	number = ft_atof(argv[1]);
-	*heap = ft_heapnew(number->number);
-	i = 2;
-	free(number);
+	i = 1;
+	heap = NULL;
 	while (argv[i])
 	{
 		number = ft_atof(argv[i]);
 		if (ft_is_dup(*heap, number->number) == DUPLICATION_ERROR)
 		{
 			ft_destroyheap(heap);
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
 		else
 			ft_heapadd(number->number, heap);
 		i++;
 		free(number);
+		number = NULL;
 	}
 }
 

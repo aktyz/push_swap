@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:33:08 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/25 18:55:32 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:02:16 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	test_ft_nb_at_head(void)
 	int		result;
 
 	ft_printf("\n--------Testing ft_nb_at_head--------\n");
-	heap = 0;
+	heap = NULL;
 	result = ft_nb_at_head(1, heap);
 	if (result != 0)
 		ft_printf("\nTest 1 failed: expected 0, got: %d\n", result);
-	heap = ft_heapnew(1);
+	ft_heapadd(1, &heap);
 	result = ft_nb_at_head(1, heap);
 	if (result != 0)
 		ft_printf("\nTest 2 failed: expected 0, got: %d\n", result);
@@ -59,7 +59,7 @@ void	test_ft_nb_at_head(void)
 	if (result != -3)
 		ft_printf("\nTest 9 failed: expected -3, got: %d\n", result);
 	ft_destroyheap(&heap);
-	heap = ft_heapnew(1);
+	ft_heapadd(1, &heap);
 	ft_heapadd(7, &heap);
 	ft_heapadd(5, &heap);
 	ft_heapadd(2, &heap);
@@ -76,13 +76,13 @@ void	test_ft_get_b_rot(void)
 	int		b_rot;
 
 	ft_printf("\n--------Testing ft_get_b_rot--------\n");
-	b = 0;
+	b = NULL;
 	b_rot = ft_get_b_rot(3, b);
 	if (b_rot != 0)
 		ft_printf("Test case 0 failed: expected 0, got %d\n", b_rot);
 	else
 		ft_printf("\n\n");
-	b = ft_heapnew(7);
+	ft_heapadd(7, &b);
 	ft_heapadd(5, &b);
 	ft_heapadd(2, &b);
 	ft_printf("\n\nHeap before test case 1:\n");
@@ -92,7 +92,7 @@ void	test_ft_get_b_rot(void)
 		ft_printf("Test case 1 failed: expected 0, got %d\n", b_rot);
 	else
 		ft_printf("\n\n");
-	a = ft_heapnew(1);
+	ft_heapadd(1, &a);
 	push_b(&a, &b);
 	ft_printf("\n\nHeap before test case 2:\n");
 	ft_print_heap(b);
@@ -120,10 +120,10 @@ void	test_ft_node_cost_calculation(void)
 	t_heap	*b;
 	int		result;
 
-	a = ft_heapnew(7);
+	ft_heapadd(7, &a);
 	ft_heapadd(1, &a);
 	ft_heapadd(6, &a);
-	b = 0;
+	b = NULL;
 	ft_printf("\n--------Testing ft_node_cost_calculation--------\n");
 	result = ft_node_cost_calculation(6, a, b);
 	if (result != 2)
@@ -133,7 +133,7 @@ void	test_ft_node_cost_calculation(void)
 	ft_heapadd(9, &a);
 	ft_heapadd(4, &a);
 	ft_heapadd(8, &a);
-	b = ft_heapnew(2);
+	ft_heapadd(2, &b);
 	ft_heapadd(5, &b);
 	result = ft_node_cost_calculation(7, a, b);
 	if (result != 2)

@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/25 17:56:06 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:50:05 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_atof
 }	t_atof;
 
 // PROGRAM functions
-t_heap	*parse_string_arg(char *string);
+void	parse_string_arg(t_heap **heap, char *string);
 t_atof	*ft_atof(const char *str);
 void	ft_push_swap(t_heap **heap);
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
@@ -50,7 +50,6 @@ int		ft_get_b_rot(int nb, t_heap *b);
 int		ft_nb_at_head(int nb, t_heap *heap);
 
 // HEAP construct & desctruct
-t_heap	*ft_heapnew(int number);
 void	ft_heapadd(int number, t_heap **heap);
 void	ft_destroyheap(t_heap **heap);
 

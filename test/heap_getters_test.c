@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:57:42 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:32:40 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:02:31 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ void	test_ft_get_size(void)
 	int		i;
 
 	ft_printf("\n--------Testing ft_get_size--------\n");
-	heap = ft_heapnew(33);
+	ft_heapadd(33, &heap);
 	size = ft_get_size(heap);
 	if (size != 1)
 		ft_printf("Test 1 ft_get_size failed, expected: 1, got: %d\n", size);
 	free(heap);
-	heap = 0;
+	heap = NULL;
 	size = ft_get_size(heap);
 	if (size != 0)
 		ft_printf("Test 2 ft_get_size failed, expected: 0, got: %d\n", size);
 	size = 7;
-	heap = ft_heapnew(1);
+	ft_heapadd(1, &heap);
 	i = 1;
 	while (size-- > 0)
 	{
@@ -50,8 +50,8 @@ void	test_ft_get_nb_pos(void)
 	int		result;
 
 	ft_printf("\n--------Testing ft_get_nb_pos--------\n");
-	heap = 0;
-	heap = ft_heapnew(1);
+	heap = NULL;
+	ft_heapadd(1, &heap);
 	ft_heapadd(2, &heap);
 	ft_heapadd(3, &heap);
 	ft_heapadd(4, &heap);

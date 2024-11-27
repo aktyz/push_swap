@@ -19,9 +19,9 @@ void	test_reverse_rotate(void)
 	t_heap	*a;
 
 	ft_printf("\n--------Testing reverse_rotate--------\n");
-	a = 0;
+	a = NULL;
 	reverse_rotate_a(&a);
-	a = ft_heapnew(45);
+	ft_heapadd(45, &a);
 	ft_printf("Heap before reverse rotation:\n");
 	ft_print_heap(a);
 	reverse_rotate_a(&a);

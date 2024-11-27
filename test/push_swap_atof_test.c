@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:10:00 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/22 16:35:04 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:03:05 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	test_ft_atof(void)
 	else
 		ft_printf("\nTest 0: Expected -2147483648, got: %f\n", result->number);
 	free(result);
+	result = NULL;
 }

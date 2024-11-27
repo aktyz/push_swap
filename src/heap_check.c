@@ -21,6 +21,8 @@ int		ft_is_sorted(t_heap *heap);
  */
 int	ft_is_dup(t_heap *heap, int nb)
 {
+	if (!heap)
+		return (OK);
 	while (heap->next)
 	{
 		if (heap->number == nb)

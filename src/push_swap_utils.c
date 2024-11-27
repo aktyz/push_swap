@@ -6,13 +6,13 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 13:05:50 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:01:52 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_heap	*parse_string_arg(char *string);
+void	parse_string_arg(t_heap **heap, char *string);
 void	ft_push_swap(t_heap **heap);
 void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b);
 void	ft_sort_three(t_heap **heap);
@@ -25,36 +25,37 @@ void	ft_push_a_sorted(t_heap **heap, t_heap **b);
  * - [ ] not a number error
  * - [ ] MAXINT overrun
  */
-t_heap	*parse_string_arg(char *string)
+void	parse_string_arg(t_heap **heap, char *string)
 {
-	t_heap		*stack;
 	char		**str_array;
 	char		**ptr;
 	t_atof		*number;
 
 	str_array = ft_split(string, ' ');
 	ptr = str_array;
-	number = ft_atof(*str_array);
-	if (!number->error)
-		stack = ft_heapnew(number->number);
-	str_array++;
-	free(number);
+	number = NULL;
+	*heap = NULL;
 	while (*str_array)
 	{
 		number = ft_atof(*str_array);
-		if (!number->error && ft_is_dup(stack, number->number) == DUPLICATION_ERROR)
+		if (!heap && !number->error)
+			ft_heapadd(number->number, heap);
+		else if (!number->error && !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
+			ft_heapadd(number->number, heap);
+		else
 		{
-			ft_destroyheap(&stack);
-			write(1, "Error\n", 6);
+			if (heap)
+				ft_destroyheap(heap);
+			ft_clear_char_array(&ptr);
+			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
-		else
-			ft_heapadd(number->number, &stack);
 		str_array++;
-		free(number);
+		if (number)
+			free(number);
+		number = NULL;
 	}
 	ft_clear_char_array(&ptr);
-	return (stack);
 }
 
 /**

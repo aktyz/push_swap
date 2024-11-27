@@ -31,7 +31,7 @@ int	rotate(t_heap **heap)
 	tmp = (*heap)->next;
 	tail = ft_get_tail(*heap);
 	tail->next = *heap;
-	tail->next->next = 0;
+	tail->next->next = NULL;
 	*heap = tmp;
 	return (1);
 }
