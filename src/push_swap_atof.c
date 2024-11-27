@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:48:22 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 16:32:22 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:51:10 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_atof	*ft_atof(const char *str)
 		is_negative = -1;
 		i++;
 	}
-	while (!result->error)
+	while (!result->error && str[i])
 	{
 		if (!ft_isdigit(str[i]))
 			result->error = NOT_A_NUMBER;

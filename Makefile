@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/11/25 16:29:38 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/27 16:46:35 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,19 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = $(wildcard $(SRC_DIR)/*.c)
-OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
+SRC_FILES = heap_check.c \
+	heap_cost_calculation.c \
+	heap_getters.c \
+	heap_print_utils.c \
+	heap_reverse_rotate.c \
+	heap_rotate.c \
+	heap_swap.c \
+	heap_utils.c \
+	push_swap_atof.c \
+	push_swap_utils.c \
+	push_swap.c
+SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 
 INCLUDES = -I headers
 

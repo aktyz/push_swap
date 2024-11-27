@@ -34,7 +34,7 @@ DONE => implement Turk algorithm<br>
 TODO =><br>
 
 - [ ] norminette!!!!<br>
-- [ ] REMOVE wildcards from Makefiles<br>
+- [x] REMOVE wildcards from Makefiles<br>
 - [ ] the solution is too long for 100 and 500 numbers :(<br>
 - [x] run Valgrind check
 - [x] refactor heap utils - creation of the list uses heapadd() - to remove last leak
