@@ -24,7 +24,7 @@ DONE => TDD: write tests for parse_arg() function
 DONE => Complete parse_arg() function as per subject requirements, reading from terminal argument missing
 
 > PICK-UP: the solution is too long for 100 and 500 numbers :(
-	- example of input when my hardcoded sorting for 3 won't work: "67 4 9"
+	- example of input when my hardcoded sorting for 3 won't work: "67 4 9" <- this is sorted - just a reverse rotation is needed
 
 TODO =><br>
 
