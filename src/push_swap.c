@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 15:23:35 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:35:01 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	main(int argc, char *argv[])
 	ft_push_swap(&stack_a);
 	ft_finish_sorting(&stack_a);
 	ft_destroyheap(&stack_a);
-	//ft_run_tests();
 	return (0);
 }
 

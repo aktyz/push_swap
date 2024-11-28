@@ -53,27 +53,43 @@ OUTOFSCOPE for Eval:
 - [ ] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
 
 # Difficult norm remaining
+## SRC
 ```
-push_swap_utils.c: Error!
+./src/push_swap_utils.c: Error!
 Error: TOO_MANY_LINES       (line:  68, col:   1):	Function has more than 25 lines
 Error: TOO_MANY_LINES       (line: 106, col:   1):	Function has more than 25 lines
 Error: TOO_MANY_LINES       (line: 196, col:   1):	Function has more than 25 lines
-push_swap.c: Error!
-Error: TOO_MANY_LINES       (line:  74, col:   1):	Function has more than 25 lines
 
-heap_cost_calculation_test.c: Error!
-Error: TOO_MANY_LINES       (line:  71, col:   1):	Function has more than 25 lines
-Error: TOO_MANY_LINES       (line: 114, col:   1):	Function has more than 25 lines
-heap_reverse_rotate_test.c: Error!
+./src/push_swap.c: Error!
+Error: TOO_MANY_LINES       (line:  73, col:   1):	Function has more than 25 lines
+
+./src/heap_check.c: Error!
+Error: TOO_MANY_LINES       (line:  74, col:   1):	Function has more than 25 lines
+```
+
+### LIBFT (?)
+
+## TEST
+```
+./test/heap_swap_test.c: Error!
 Error: TOO_MANY_LINES       (line:  45, col:   1):	Function has more than 25 lines
-heap_swap_test.c: Error!
+
+./test/heap_reverse_rotate_test.c: Error!
 Error: TOO_MANY_LINES       (line:  45, col:   1):	Function has more than 25 lines
-heap_utils_test.c: Error!
+
+./test/heap_utils_test.c: Error!
 Error: TOO_MANY_LINES       (line:  48, col:   1):	Function has more than 25 lines
-push_swap_utils_test.c: Error!
+
+./test/heap_cost_calculation_test.c: Error!
+Error: TOO_MANY_LINES       (line:  70, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 115, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 163, col:   1):	Function has more than 25 lines
+
+./test/push_swap_utils_test.c: Error!
 Error: TOO_MANY_LINES       (line:  45, col:   1):	Function has more than 25 lines
-test_main.c: Error!
-Error: TOO_MANY_LINES       (line:  61, col:   1):	Function has more than 25 lines
+
+./test/heap_check_test.c: Error!
+Error: TOO_MANY_LINES       (line:  56, col:   1):	Function has more than 25 lines
 ```
 
 # Short notes on Makefiles
