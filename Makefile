@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/11/27 16:46:35 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/28 14:59:17 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ test: $(OBJ)
 	$(CC) obj/heap_check.o obj/heap_check_test.o obj/heap_cost_calculation.o obj/heap_cost_calculation_test.o \
 		obj/heap_getters.o obj/heap_getters_test.o obj/heap_print_utils.o obj/heap_reverse_rotate.o obj/heap_reverse_rotate_test.o \
 		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
-		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o ./libft.a -o run_test
+		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o obj/push_swap.o ./libft.a -o run_test
 
 debug: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
@@ -90,7 +90,7 @@ debug: $(OBJ)
 	$(CC) obj/heap_check.o obj/heap_check_test.o obj/heap_cost_calculation.o obj/heap_cost_calculation_test.o \
 		obj/heap_getters.o obj/heap_getters_test.o obj/heap_print_utils.o obj/heap_reverse_rotate.o obj/heap_reverse_rotate_test.o \
 		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
-		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o ./libft.a -o run_debug -g
+		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o obj/push_swap.o ./libft.a -o run_debug -g
 
 re: fclean all
 

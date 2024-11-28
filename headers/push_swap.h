@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 14:09:31 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:56:55 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int		ft_is_dup(t_heap *heap, int nb);
 int		ft_is_sorted(t_heap *heap);
 
 // DEBUG/TEST functions
+void	ft_run_tests(void);
 void	ft_print_heap_node(t_heap *node);
 void	ft_print_heap(t_heap *heap);
 void	ft_print_heap_size(t_heap *heap);
