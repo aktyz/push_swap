@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 17:53:11 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:09:31 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		ft_get_size(t_heap *heap);
 int		ft_get_min(t_heap *heap);
 int		ft_get_max(t_heap *heap);
 int		ft_get_nb_pos(int nb, t_heap *heap);
+t_heap	*ft_get_nb_node(int nb, t_heap *heap);
 
 // HEAP checks
 int		ft_is_dup(t_heap *heap, int nb);

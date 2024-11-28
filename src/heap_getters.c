@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:49:44 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 14:03:32 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:25:15 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_get_max(t_heap *heap)
 }
 
 /**
- * Function assigns the current posiotion number of the node
+ * Function assigns the current position number of the node
  * in the heap.
  *
  * Needed to calculate the required heap rotations to get this number

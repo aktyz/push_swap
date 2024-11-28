@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 17:55:33 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:54:00 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	parse_args(t_heap **heap, char **argv);
 static void	ft_finish_sorting(t_heap **heap);
-void		ft_exit_failure(t_heap ***heap, t_atof **number);
 
 int	main(int argc, char *argv[])
 {
@@ -87,6 +86,7 @@ static void	ft_finish_sorting(t_heap **heap)
 	{
 		while (rot--)
 			rotate_a(heap);
+		rot = 0;
 	}
 	if (rot < 0)
 	{

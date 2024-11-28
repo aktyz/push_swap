@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 10:56:45 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 16:36:22 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:54:11 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,19 @@ int	main(int argc, char *argv[])
 		parse_args(&stack_a, argv);
 	else
 		exit(EXIT_FAILURE);
+	if (!stack_a)
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
 	ft_push_swap(&stack_a);
 	ft_finish_sorting(&stack_a);
 	ft_destroyheap(&stack_a);
-	//ft_printf("\nUNIT TESTS\n");
+	ft_printf("\nUNIT TESTS\n");
 	//test_ft_nb_at_head();
 	//test_ft_node_cost_calculation();
-	//ft_printf("\nUNIT TESTS COMPLETED\n");
+	test_ft_is_sorted();
+	ft_printf("\nUNIT TESTS COMPLETED\n");
 	return (0);
 }
 
@@ -52,7 +58,8 @@ static void	parse_args(t_heap **heap, char **argv)
 		number = ft_atof(argv[i]);
 		if (!*heap && !number->error)
 			ft_heapadd(number->number, heap);
-		else if (!(number->error) && !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
+		else if (!(number->error)
+			&& !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
 			ft_heapadd(number->number, heap);
 		else
 		{
@@ -84,6 +91,7 @@ static void	ft_finish_sorting(t_heap **heap)
 	{
 		while (rot--)
 			rotate_a(heap);
+		rot = 0;
 	}
 	if (rot < 0)
 	{
