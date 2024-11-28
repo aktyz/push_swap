@@ -6,11 +6,13 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/11/28 15:22:47 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/28 15:32:28 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+TEST = run_test
+DEBUG = run_debug
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -53,9 +55,10 @@ fclean: clean
 	@cd ./libft && $(MAKE) fclean
 	@rm -f $(NAME)
 	@rm -fr $(OBJ_DIR)
-	@rm ./libft.a
-	@rm ./headers/libft.h
-	@rm ./run_test ./run_debug
+	@rm -f ./libft.a
+	@rm -f ./headers/libft.h
+	@rm -f ./$(TEST)
+	@rm -f ./$(DEBUG)
 
 clean:
 	@rm -f $(OBJ)
@@ -73,7 +76,7 @@ test: $(OBJ)
 	$(CC) obj/heap_check.o obj/heap_check_test.o obj/heap_cost_calculation.o obj/heap_cost_calculation_test.o \
 		obj/heap_getters.o obj/heap_getters_test.o obj/heap_print_utils.o obj/heap_reverse_rotate.o obj/heap_reverse_rotate_test.o \
 		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
-		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o obj/push_swap.o ./libft.a -o run_test
+		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o obj/push_swap.o ./libft.a -o $(TEST)
 
 debug: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -c test/test_main.c -o obj/test_main.o -g
@@ -88,8 +91,8 @@ debug: $(OBJ)
 	$(CC) obj/heap_check.o obj/heap_check_test.o obj/heap_cost_calculation.o obj/heap_cost_calculation_test.o \
 		obj/heap_getters.o obj/heap_getters_test.o obj/heap_print_utils.o obj/heap_reverse_rotate.o obj/heap_reverse_rotate_test.o \
 		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
-		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o obj/push_swap.o ./libft.a -o run_debug -g
+		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o obj/push_swap.o ./libft.a -o $(DEBUG) -g
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean libft re
