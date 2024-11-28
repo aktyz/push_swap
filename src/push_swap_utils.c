@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 14:44:28 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:20:05 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void	parse_string_arg(t_heap **heap, char *string)
 			exit(EXIT_FAILURE);
 		}
 		str_array++;
+		if (number)
+			free(number);
+		number = NULL;
 	}
-	if (number)
-		free(number);
-	number = NULL;
 	ft_clear_char_array(&ptr);
 }
 

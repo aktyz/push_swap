@@ -6,7 +6,7 @@
 #    By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 19:42:02 by zslowian          #+#    #+#              #
-#    Updated: 2024/11/28 15:08:30 by zslowian         ###   ########.fr        #
+#    Updated: 2024/11/28 15:22:47 by zslowian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,6 @@ debug: $(OBJ)
 		obj/heap_rotate.o obj/heap_swap.o obj/heap_swap_test.o obj/heap_utils.o obj/heap_utils_test.o obj/push_swap_utils.o \
 		obj/push_swap_utils_test.o obj/test_main.o obj/push_swap_atof.o obj/push_swap_atof_test.o obj/push_swap.o ./libft.a -o run_debug -g
 
-re: fclean all
+re: clean all
 
 .PHONY: all clean fclean libft re
