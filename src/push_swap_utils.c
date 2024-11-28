@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 15:20:05 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/28 19:24:55 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 	int	b_rot;
 	int	min;
 
-	a_rot = tmp->distance_from_head;
+	a_rot = ft_nb_at_head(tmp->number, *heap);
 	b_rot = ft_get_b_rot(tmp->number, *b);
 	if (a_rot * b_rot > 0)
 	{
@@ -137,60 +137,31 @@ void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 				b_rot++;
 			}
 		}
-		if (a_rot != 0)
+	}
+	if (a_rot != 0)
+	{
+		if (a_rot > 0)
 		{
-			if (a_rot > 0)
-			{
-				while (a_rot--)
-					rotate_a(heap);
-			}
-			else
-			{
-				while (a_rot++)
-					reverse_rotate_a(heap);
-			}
+			while (a_rot--)
+				rotate_a(heap);
 		}
-		if (b_rot != 0)
+		else
 		{
-			if (b_rot > 0)
-			{
-				while (b_rot--)
-					rotate_b(b);
-			}
-			else
-			{
-				while (b_rot++)
-					reverse_rotate_b(b);
-			}
+			while (a_rot++)
+				reverse_rotate_a(heap);
 		}
 	}
-	else
+	if (b_rot != 0)
 	{
-		if (a_rot != 0)
+		if (b_rot > 0)
 		{
-			if (a_rot > 0)
-			{
-				while (a_rot--)
-					rotate_a(heap);
-			}
-			else
-			{
-				while (a_rot++)
-					reverse_rotate_a(heap);
-			}
+			while (b_rot--)
+				rotate_b(b);
 		}
-		if (b_rot != 0)
+		else
 		{
-			if (b_rot > 0)
-			{
-				while (b_rot--)
-					rotate_b(b);
-			}
-			else
-			{
-				while (b_rot++)
-					reverse_rotate_b(b);
-			}
+			while (b_rot++)
+				reverse_rotate_b(b);
 		}
 	}
 }

@@ -27,7 +27,7 @@ DONE => Complete parse_arg() function as per subject requirements, reading from 
 
 TODO =><br>
 - [x] Valgrind runs x2<br>
-- [ ] the solution is too long for 100 and 500 numbers :(<br>
+- [x] the solution is too long for 100 and 500 numbers :(<br>
 - [ ] norminette!!!!<br>
 
 
