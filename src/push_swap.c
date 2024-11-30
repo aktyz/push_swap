@@ -6,20 +6,21 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/30 15:34:57 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:08:23 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int			main(int argc, char *argv[]);
 static void	parse_args(t_heap **heap, char **argv);
 static void	ft_finish_sorting(t_heap **heap);
+void		ft_check_number(t_heap ***heap, t_atof *number);
 
 int	main(int argc, char *argv[])
 {
 	t_heap	*stack_a;
 
-	ft_run_tests();
 	stack_a = NULL;
 	if (argc == 2)
 		parse_string_arg(&stack_a, argv[1]);
@@ -52,20 +53,7 @@ static void	parse_args(t_heap **heap, char **argv)
 	while (argv[i])
 	{
 		number = ft_atof(argv[i]);
-		if (!*heap && !number->error)
-			ft_heapadd(number->number, heap);
-		else if (!(number->error)
-			&& !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
-			ft_heapadd(number->number, heap);
-		else
-		{
-			if (heap)
-				ft_destroyheap(heap);
-			if (number)
-				free(number);
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
+		ft_check_number(&heap, number);
 		i++;
 		if (number)
 			free(number);
@@ -93,5 +81,29 @@ static void	ft_finish_sorting(t_heap **heap)
 	{
 		while (rot++)
 			reverse_rotate_a(heap);
+	}
+}
+
+/**
+ * Function checks if there's everything correct with a number:
+ * - if yes it add it to the heap
+ * - if not it exit the program with error
+ *
+ */
+void	ft_check_number(t_heap ***heap, t_atof *number)
+{
+	if (!**heap && !number->error)
+		ft_heapadd(number->number, *heap);
+	else if (!(number->error) && !(ft_is_dup(**heap,
+				number->number) == DUPLICATION_ERROR))
+		ft_heapadd(number->number, *heap);
+	else
+	{
+		if (*heap)
+			ft_destroyheap(*heap);
+		if (number)
+			free(number);
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
 	}
 }
