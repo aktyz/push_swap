@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/30 16:11:07 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:21:08 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,10 @@ void	parse_string_arg(t_heap **heap, char *string)
 void	ft_push_swap(t_heap **heap)
 {
 	int		size;
-	t_heap	*tmp;
 	t_heap	*b;
 
 	size = ft_get_size(*heap);
 	b = NULL;
-	tmp = NULL;
 	if (size >= 0 && size <= 1)
 		return ;
 	if (size == 2)
@@ -79,13 +77,7 @@ void	ft_push_swap(t_heap **heap)
 	else if (!ft_is_sorted(*heap))
 	{
 		push_b(heap, &b);
-		while (size > 3)
-		{
-			tmp = ft_get_lowest_cost_node(*heap, b);
-			ft_rot_ab(tmp, heap, &b);
-			push_b(heap, &b);
-			size = ft_get_size(*heap);
-		}
+		ft_sort_in_b(&heap, &b, size);
 		ft_sort_three(heap);
 		ft_push_a_sorted(heap, &b);
 	}
