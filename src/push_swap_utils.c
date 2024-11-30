@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 19:24:55 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:11:07 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_push_a_sorted(t_heap **heap, t_heap **b);
  * Function takes string given as program argument and
  * divided it into itegers. Funciton checks agains:
  * - [x] duplication error
- * - [ ] not a number error
- * - [ ] MAXINT overrun
+ * - [x] not a number error
+ * - [ ] MAXINT overrun!!!
  */
 void	parse_string_arg(t_heap **heap, char *string)
 {
@@ -44,21 +44,7 @@ void	parse_string_arg(t_heap **heap, char *string)
 	while (*str_array)
 	{
 		number = ft_atof(*str_array);
-		if (!*heap && !number->error)
-			ft_heapadd(number->number, heap);
-		else if (!(number->error)
-			&& !(ft_is_dup(*heap, number->number) == DUPLICATION_ERROR))
-			ft_heapadd(number->number, heap);
-		else
-		{
-			if (heap)
-				ft_destroyheap(heap);
-			if (number)
-				free(number);
-			ft_clear_char_array(&ptr);
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
+		ft_check_number(&heap, number);
 		str_array++;
 		if (number)
 			free(number);

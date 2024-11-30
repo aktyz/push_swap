@@ -69,6 +69,27 @@ Error: TOO_MANY_LINES       (line:  74, col:   1):	Function has more than 25 lin
 
 ### LIBFT (?)
 
+#### Leaks correction in ft_split
+
+==34246== HEAP SUMMARY:
+==34246==     in use at exit: 40 bytes in 4 blocks
+==34246==   total heap usage: 9 allocs, 5 frees, 136 bytes allocated
+==34246== 
+==34246== 8 bytes in 3 blocks are still reachable in loss record 1 of 2
+==34246==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34246==    by 0x4052A2: ft_allocate_word (ft_split.c:42)
+==34246==    by 0x4051A0: ft_allocate_words (ft_split.c:65)
+==34246==    by 0x40503D: ft_split (ft_split.c:30)
+==34246==    by 0x402FED: parse_string_arg (push_swap_utils.c:34)
+==34246==    by 0x403928: main (push_swap.c:26)
+==34246== 
+==34246== 32 bytes in 1 blocks are still reachable in loss record 2 of 2
+==34246==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==34246==    by 0x40500E: ft_split (ft_split.c:27)
+==34246==    by 0x402FED: parse_string_arg (push_swap_utils.c:34)
+==34246==    by 0x403928: main (push_swap.c:26)
+
+
 ## TEST
 ```
 ./test/heap_swap_test.c: Error!

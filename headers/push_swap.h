@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:16:24 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 18:24:36 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:10:05 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int		ft_node_cost_calculation(int nb, t_heap *a, t_heap *b);
 int		ft_get_a_rot(int nb, t_heap *a);
 int		ft_get_b_rot(int nb, t_heap *b);
 int		ft_nb_at_head(int nb, t_heap *heap);
+void	ft_check_number(t_heap ***heap, t_atof *number);
 
 // HEAP construct & desctruct
 void	ft_heapadd(int number, t_heap **heap);
