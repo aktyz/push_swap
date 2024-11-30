@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/30 16:21:08 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:53:21 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,55 +93,13 @@ void	ft_rot_ab(t_heap *tmp, t_heap **heap, t_heap **b)
 {
 	int	a_rot;
 	int	b_rot;
-	int	min;
 
 	a_rot = ft_nb_at_head(tmp->number, *heap);
 	b_rot = ft_get_b_rot(tmp->number, *b);
 	if (a_rot * b_rot > 0)
-	{
-		min = ft_min(ft_absolute(a_rot), ft_absolute(b_rot));
-		while (min--)
-		{
-			if (a_rot > 0)
-			{
-				rotate_ab(heap, b);
-				a_rot--;
-				b_rot--;
-			}
-			else if (a_rot < 0)
-			{
-				reverse_rotate_ab(heap, b);
-				a_rot++;
-				b_rot++;
-			}
-		}
-	}
-	if (a_rot != 0)
-	{
-		if (a_rot > 0)
-		{
-			while (a_rot--)
-				rotate_a(heap);
-		}
-		else
-		{
-			while (a_rot++)
-				reverse_rotate_a(heap);
-		}
-	}
-	if (b_rot != 0)
-	{
-		if (b_rot > 0)
-		{
-			while (b_rot--)
-				rotate_b(b);
-		}
-		else
-		{
-			while (b_rot++)
-				reverse_rotate_b(b);
-		}
-	}
+		ft_rotate_both(&a_rot, &b_rot, &heap, &b);
+	ft_rotate(&heap, &a_rot, &rotate_a, &reverse_rotate_a);
+	ft_rotate(&b, &b_rot, &rotate_b, &reverse_rotate_b);
 }
 
 /**

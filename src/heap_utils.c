@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:24:49 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/27 17:54:54 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:52:38 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ void	ft_destroyheap(t_heap **heap);
 // HEAPS operations
 void	push_a(t_heap **a, t_heap **b);
 void	push_b(t_heap **a, t_heap **b);
+
+// ROTATE heap
+void	ft_rotate(t_heap ***heap, int *nb, void (*fr)(t_heap **),
+			void (*frr)(t_heap **));
 
 void	ft_heapadd(int number, t_heap **heap)
 {
@@ -98,4 +102,17 @@ void	push_b(t_heap **a, t_heap **b)
 		*b = temp;
 	}
 	ft_printf("pb\n");
+}
+
+void	ft_rotate(t_heap ***heap, int *nb, void (*fr)(t_heap **),
+	void (*frr)(t_heap **))
+{
+	if (*nb == 0)
+		return ;
+	if (*nb > 0)
+		while ((*nb)--)
+			fr(*heap);
+	else
+		while ((*nb)++)
+			frr(*heap);
 }

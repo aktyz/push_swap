@@ -16,6 +16,7 @@ int		rotate(t_heap **heap);
 void	rotate_a(t_heap **a);
 void	rotate_b(t_heap **b);
 void	rotate_ab(t_heap **a, t_heap **b);
+void	ft_rotate_both(int *a_rot, int *b_rot, t_heap ***a, t_heap ***b);
 
 /** Rotate heap so that:
  * - head element becomes tail
@@ -63,4 +64,26 @@ void	rotate_ab(t_heap **a, t_heap **b)
 		ft_printf("rb\n");
 	else
 		return ;
+}
+
+void	ft_rotate_both(int *a_rot, int *b_rot, t_heap ***a, t_heap ***b)
+{
+	int	min;
+
+	min = ft_min(ft_absolute(*a_rot), ft_absolute(*b_rot));
+	while (min--)
+	{
+		if (*a_rot > 0)
+		{
+			rotate_ab(*a, *b);
+			(*a_rot)--;
+			(*b_rot)--;
+		}
+		else if (*a_rot < 0)
+		{
+			reverse_rotate_ab(*a, *b);
+			(*a_rot)++;
+			(*b_rot)++;
+		}
+	}
 }
