@@ -55,40 +55,49 @@ OUTOFSCOPE for Eval:
 # Difficult norm remaining
 ## SRC
 ```
-./src/push_swap_utils.c: Error!
-Error: TOO_MANY_LINES       (line:  68, col:   1):	Function has more than 25 lines
-Error: TOO_MANY_LINES       (line: 106, col:   1):	Function has more than 25 lines
-Error: TOO_MANY_LINES       (line: 196, col:   1):	Function has more than 25 lines
-
-./src/push_swap.c: Error!
-Error: TOO_MANY_LINES       (line:  73, col:   1):	Function has more than 25 lines
-
-./src/heap_check.c: Error!
-Error: TOO_MANY_LINES       (line:  74, col:   1):	Function has more than 25 lines
 ```
 
 ### LIBFT (?)
 
 #### Leaks correction in ft_split
+```
+valgrind --leak-check=full --show-leak-kinds=all ./run_debug "ab 6 99"
+==92904== Memcheck, a memory error detector
+==92904== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==92904== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==92904== Command: ./run_debug ab\ 6\ 99
+==92904== 
+Error
+==92904== 
+==92904== HEAP SUMMARY:
+==92904==     in use at exit: 40 bytes in 4 blocks
+==92904==   total heap usage: 5 allocs, 1 frees, 56 bytes allocated
+==92904== 
+==92904== 8 bytes in 3 blocks are still reachable in loss record 1 of 2
+==92904==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==92904==    by 0x405342: ft_allocate_word (ft_split.c:42)
+==92904==    by 0x405240: ft_allocate_words (ft_split.c:65)
+==92904==    by 0x4050DD: ft_split (ft_split.c:30)
+==92904==    by 0x40317D: parse_string_arg (push_swap_utils.c:34)
+==92904==    by 0x403948: main (push_swap.c:27)
+==92904== 
+==92904== 32 bytes in 1 blocks are still reachable in loss record 2 of 2
+==92904==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==92904==    by 0x4050AE: ft_split (ft_split.c:27)
+==92904==    by 0x40317D: parse_string_arg (push_swap_utils.c:34)
+==92904==    by 0x403948: main (push_swap.c:27)
+==92904== 
+==92904== LEAK SUMMARY:
+==92904==    definitely lost: 0 bytes in 0 blocks
+==92904==    indirectly lost: 0 bytes in 0 blocks
+==92904==      possibly lost: 0 bytes in 0 blocks
+==92904==    still reachable: 40 bytes in 4 blocks
+==92904==         suppressed: 0 bytes in 0 blocks
+==92904== 
+==92904== For lists of detected and suppressed errors, rerun with: -s
+==92904== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
-==34246== HEAP SUMMARY:
-==34246==     in use at exit: 40 bytes in 4 blocks
-==34246==   total heap usage: 9 allocs, 5 frees, 136 bytes allocated
-==34246== 
-==34246== 8 bytes in 3 blocks are still reachable in loss record 1 of 2
-==34246==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34246==    by 0x4052A2: ft_allocate_word (ft_split.c:42)
-==34246==    by 0x4051A0: ft_allocate_words (ft_split.c:65)
-==34246==    by 0x40503D: ft_split (ft_split.c:30)
-==34246==    by 0x402FED: parse_string_arg (push_swap_utils.c:34)
-==34246==    by 0x403928: main (push_swap.c:26)
-==34246== 
-==34246== 32 bytes in 1 blocks are still reachable in loss record 2 of 2
-==34246==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34246==    by 0x40500E: ft_split (ft_split.c:27)
-==34246==    by 0x402FED: parse_string_arg (push_swap_utils.c:34)
-==34246==    by 0x403928: main (push_swap.c:26)
-
+```
 
 ## TEST
 ```
