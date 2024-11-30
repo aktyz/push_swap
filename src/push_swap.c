@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 15:35:01 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:34:57 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[])
 {
 	t_heap	*stack_a;
 
+	ft_run_tests();
 	stack_a = NULL;
 	if (argc == 2)
 		parse_string_arg(&stack_a, argv[1]);

@@ -40,36 +40,25 @@ int	ft_is_dup(t_heap *heap, int nb)
  */
 int	ft_is_sorted(t_heap *heap)
 {
-	int		tmp_nb;
 	t_heap	*min;
+	t_heap	*next;
 	int		size;
 
 	size = ft_get_size(heap) - 1;
 	if (size <= 1)
 		return (1);
 	min = ft_get_nb_node(ft_get_min(heap), heap);
-	tmp_nb = min->number;
-	if (min->next)
-		min = min->next;
-	else
-		min = heap;
 	while (size--)
 	{
-		if (tmp_nb < min->number)
-		{
-			tmp_nb = min->number;
-			if (min->next)
-				min = min->next;
-			else
-				min = heap;
-		}
+		if (min->next)
+			next = min->next;
 		else
-		{
+			next = heap;
+		if (next->number > min->number)
+			min = next;
+		else
 			return (0);
-			min = NULL;
-		}
 	}
-	min = NULL;
 	return (1);
 }
 
