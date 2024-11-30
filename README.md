@@ -28,7 +28,7 @@ DONE => Complete parse_arg() function as per subject requirements, reading from 
 TODO =><br>
 - [x] Valgrind runs x2<br>
 - [x] the solution is too long for 100 and 500 numbers :(<br>
-- [ ] norminette!!!!<br>
+- [x] norminette!!!!<br>
 
 
 - [x] REMOVE wildcards from Makefiles<br>
@@ -50,7 +50,7 @@ TODO =><br>
 - [x] revrite ft_heap_new(**heap) & ft_heap_add(**heap)<br><br>
 
 OUTOFSCOPE for Eval:
-- [ ] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
+- [x] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
 
 # Difficult norm remaining
 ## SRC

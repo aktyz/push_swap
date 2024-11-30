@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/30 16:53:21 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:58:41 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_push_a_sorted(t_heap **heap, t_heap **b);
  * divided it into itegers. Funciton checks agains:
  * - [x] duplication error
  * - [x] not a number error
- * - [ ] MAXINT overrun!!!
+ * - [x] MAXINT overrun
  */
 void	parse_string_arg(t_heap **heap, char *string)
 {
