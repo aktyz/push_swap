@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 20:19:57 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/30 16:58:41 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:54:18 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	parse_string_arg(t_heap **heap, char *string)
 	while (*str_array)
 	{
 		number = ft_atof(*str_array);
-		ft_check_number(&heap, number);
+		ft_check_number(&heap, number, &ptr);
 		str_array++;
 		if (number)
 			free(number);

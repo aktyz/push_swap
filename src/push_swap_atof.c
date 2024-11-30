@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:48:22 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/28 18:33:18 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:51:54 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ static void	ft_collect_number(t_atof **result, char **str, int *i)
 	while (!(tmp->error) && c[*i])
 	{
 		if (!ft_isdigit(c[*i]))
+		{
 			tmp->error = NOT_A_NUMBER;
+			return ;
+		}
 		ft_check_overflow(&tmp, c[*i]);
 		tmp->number = ((tmp->number) * 10) + (c[*i] - 48);
 		(*i)++;

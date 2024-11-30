@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/30 16:26:33 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:56:44 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			main(int argc, char *argv[]);
 static void	parse_args(t_heap **heap, char **argv);
 static void	ft_finish_sorting(t_heap **heap);
-void		ft_check_number(t_heap ***heap, t_atof *number);
+void		ft_check_number(t_heap ***heap, t_atof *number, char ***ptr);
 void		ft_sort_in_b(t_heap ***heap, t_heap **b, int size);
 
 int	main(int argc, char *argv[])
@@ -54,7 +54,7 @@ static void	parse_args(t_heap **heap, char **argv)
 	while (argv[i])
 	{
 		number = ft_atof(argv[i]);
-		ft_check_number(&heap, number);
+		ft_check_number(&heap, number, NULL);
 		i++;
 		if (number)
 			free(number);
@@ -91,7 +91,7 @@ static void	ft_finish_sorting(t_heap **heap)
  * - if not it exit the program with error
  *
  */
-void	ft_check_number(t_heap ***heap, t_atof *number)
+void	ft_check_number(t_heap ***heap, t_atof *number, char ***ptr)
 {
 	if (!**heap && !number->error)
 		ft_heapadd(number->number, *heap);
@@ -100,6 +100,8 @@ void	ft_check_number(t_heap ***heap, t_atof *number)
 		ft_heapadd(number->number, *heap);
 	else
 	{
+		if (*ptr)
+			ft_clear_char_array(ptr);
 		if (*heap)
 			ft_destroyheap(*heap);
 		if (number)
