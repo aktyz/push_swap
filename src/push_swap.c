@@ -6,7 +6,7 @@
 /*   By: zslowian <zslowian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:46:11 by zslowian          #+#    #+#             */
-/*   Updated: 2024/11/30 17:56:44 by zslowian         ###   ########.fr       */
+/*   Updated: 2024/11/30 18:22:03 by zslowian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	ft_check_number(t_heap ***heap, t_atof *number, char ***ptr)
 		ft_heapadd(number->number, *heap);
 	else
 	{
-		if (*ptr)
+		if (ptr)
 			ft_clear_char_array(ptr);
 		if (*heap)
 			ft_destroyheap(*heap);

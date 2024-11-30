@@ -10,7 +10,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/run_debug",
-            "args": ["ab 6 99"],
+            "args": ["6", "ab", "99"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
