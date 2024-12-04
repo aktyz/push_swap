@@ -49,6 +49,8 @@ TODO =><br>
 - [x] remove unusued "initial index of the node"<br>
 - [x] revrite ft_heap_new(**heap) & ft_heap_add(**heap)<br><br>
 
+- [ ] debug ./push_swap 1 5 5 4 3
+
 OUTOFSCOPE for Eval:
 - [x] move check on ints from parse_args and parse_string_arg to a separate funciton<br>
 

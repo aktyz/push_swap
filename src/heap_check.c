@@ -24,7 +24,7 @@ int	ft_is_dup(t_heap *heap, int nb)
 {
 	if (!heap)
 		return (OK);
-	while (heap->next)
+	while (heap)
 	{
 		if (heap->number == nb)
 			return (DUPLICATION_ERROR);
